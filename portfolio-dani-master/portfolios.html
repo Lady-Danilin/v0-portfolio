@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awesome Portfolio Color Palettes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-weight: 700;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: rgba(255,255,255,0.9);
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .category {
+            margin-bottom: 4rem;
+        }
+
+        .category-title {
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: 600;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .palette-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .palette-card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .palette-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .palette-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #2d3748;
+        }
+
+        .palette-description {
+            font-size: 0.9rem;
+            color: #718096;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .color-strip {
+            display: flex;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+            height: 80px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .color-block {
+            flex: 1;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .color-block:hover {
+            transform: scale(1.1);
+            z-index: 2;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .color-code {
+            position: absolute;
+            bottom: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .color-block:hover .color-code {
+            opacity: 1;
+        }
+
+        .use-case {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .use-tag {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .copy-palette {
+            margin-top: 1rem;
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .copy-palette:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
+        }
+
+        .trend-indicator {
+            display: inline-block;
+            background: linear-gradient(45deg, #FF6B6B, #FF8E53);
+            color: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 10px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .palette-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #4CAF50;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
+
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        .font-section {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .font-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .font-pairs {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .font-pair {
+            background: rgba(255,255,255,0.8);
+            padding: 1rem;
+            border-radius: 10px;
+            border-left: 4px solid;
+        }
+
+        .font-primary {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .font-secondary {
+            font-size: 1rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+            opacity: 0.8;
+        }
+
+        .font-details {
+            font-size: 0.8rem;
+            color: #666;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .font-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .font-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Awesome Portfolio Color Palettes</h1>
+        <p class="subtitle">Curated collection of stunning color schemes to elevate your creative portfolio</p>
+
+        <div class="category">
+            <h2 class="category-title">💼 Professional & Minimalist</h2>
+            <div class="palette-grid">
+                <div class="palette-card">
+                    <h3 class="palette-name">Modern Professional <span class="trend-indicator">TRENDING</span></h3>
+                    <p class="palette-description">Clean and sophisticated palette perfect for corporate portfolios and professional services.</p>
+                    <div class="color-strip">
+                        <div class="color-block" style="background: #2D3748"><span class="color-code">#2D3748</span></div>
+                        <div class="color-block" style="background: #4A5568"><span class="color-code">#4A5568</span></div>
+                        <div class="color-block" style="background: #E2E8F0"><span class="color-code">#E2E8F0</span></div>
+                        <div class="color-block" style="background: #F7FAFC"><span class="color-code">#F7FAFC</span></div>
+                    </div>
+                    <div class="use-case">
+                        <span class="use-tag">Business</span>
+                        <span class="use-tag">Corporate</span>
+                        <span class="use-tag">Clean</span>
+                    </div>
+                    <button class="copy-palette" onclick="copyPalette(['#2D3748', '#4A5568', '#E2E8F0', '#F7FAFC'])">Copy Palette</button>
+                </div>
+
+                <div class="palette-card">
+                    <h3 class="palette-name">Elegant Monochrome</h3>
+                    <p class="palette-description">Timeless black and white with subtle grays - perfect for photography and art portfolios.</p>
+                    <div class="color-strip">
+                        <div class="color-block" style="background: #000000"><span class="color-code">#000000</span></div>
+                        <div class="color-block" style="background: #4A4A4A"><span class="color-code">#4A4A4A</span></div>
+                        <div class="color-block" style="background: #A0A0A0"><span class="color-code">#A0A0A0</span></div>
+                        <div class="color-block" style="background: #FFFFFF"><span class="color-code">#FFFFFF</span></div>
+                    </div>
+                    <div class="use-case">
+                        <span class="use-tag">Photography</span>
+                        <span class="use-tag">Art</span>
+                        <span class="use-tag">Timeless</span>
+                    </div>
+                    <button class="copy-palette" onclick="copyPalette(['#000000', '#4A4A4A', '#A0A0A0', '#FFFFFF'])">Copy Palette</button>
+                </div>
+
+                <div class="palette-card">
+                    <h3 class="palette-name">Soft Neutrals</h3>
+                    <p class="palette-description">Warm and inviting neutral tones that create a comfortable, approachable feeling.</p>
+                    <div class="color-strip">
+                        <div class="color-block" style="background: #F5F5DC"><span class="color-code">#F5F5DC</span></div>
+                        <div class="color-block" style="background: #D2B48C"><span class="color-code">#D2B48C</span></div>
+                        <div class="color-block" style="background: #8B7355"><span class="color-code">#8B7355</span></div>
+                        <div class="color-block" style="background: #5D4E37"><span class="color-code">#5D4E37</span></div>
+                    </div>
+                    <div class="use-case">
+                        <span class="use-tag">Warm</span>
+                        <span class="use-tag">Comfortable</span>
+                        <span class="use-tag">Natural</span>
+                    </div>
+                    <button class="copy-palette" onclick="copyPalette(['#F5F5DC', '#D2B48C', '#8B7355', '#5D4E37'])">Copy Palette</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="category">
+            <h2 class="category-title">🌈 Creative & Bold</h2>
+            <div class="palette-grid">
+                <div class="palette-card">
+                    <h3 class="palette-name">Vibrant Gradient <span class="trend-indicator">HOT</span></h3>
+                    <p class="palette-description">Eye-catching gradient palette perfect for creative agencies and innovative portfolios.</p>
+                    <div class="color-strip">
+                        <div class="color-block" style="background: #667eea"><span class="color-code">#667eea</span></div>
+                        <div class="color-block" style="background: #764ba2"><span class="color-code">#764ba2</span></div>
+                        <div class="color-block" style="background: #f093fb"><span class="color-code">#f093fb</span></div>
+                        <div class="color-block" style="background: #f5576c"><span class="color-code">#f5576c</span></div>
+                    </div>
+                    <div class="use-case">
+                        <span class="use-tag">Creative</span>
+                        <span class="use-tag">Bold</span>
+                        <span class="use-tag">Modern</span>
+                    </div>
+                    <button class="copy-palette" onclick="copyPalette(['#667eea', '#764ba2', '#f093fb', '#f5576c'])">Copy Palette</button>
+                </div>
+
+                <div class="palette-card">
+                    <h3 class="palette-name">Neon Dreams</h3>
+                    <p class="palette-description">Electric neon colors for cutting-edge digital portfolios and tech-focused designs.</p>
+                    <div class="color-strip">
+                        <div class="color-block" style="background: #FF0080"><span class="color-code">#FF0080</span></div>
+                        <div class="color-block" style="background: #7928CA"><span class="color-code">#7928CA</span></div>
+                        <div class="color-block" style="background: #0070F3"><span class="color-code">#0070F3</span></div>
+                        <div class="color-block" style="background: #00D2FF"><span class="color-code">#00D2FF</span></div>
+                    </div>
+                    <div class="use-case">
+                        <span class="use-tag">Tech</span>
+                        <span class="use-tag">Digital</span>
+                        <span class="use-tag">Futuristic</span>
+                    </div>
+                    <button class="copy-palette" onclick="copyPalette(['#FF0080', '#7928CA', '#0070F3', '#00D2FF'])">Copy Palette</button>
+                </div>
+
+                <div class="palette-card">
+                    <h3 class="palette-name">Sunset Vibes</h3>
+                    <p class="palette-description">Warm sunset colors that evoke creativity and passion - perfect for artistic portfolios.</p>
+                    <div class="color-strip">
+                        <div class="color-block" style="background: #FF6B6B"><span class="color-code">#FF6B6B</span></div>
+                        <div class="color-block" style="background: #FF8E53"><span class="color-code">#FF8E53</span></div>
+                        <div class="color-block" style="background: #FFD93D"><span class="color-code">#FFD93D</span></div>
+                        <div class="color-block" style="background: #6BCF7F"><span class="color-code">#6BCF7F</span></div>
+                    </div>
+                    <div class="use-case">
+                        <span class="use-tag">Artistic</span>
+                        <span class="use-tag">Warm</span>
+                        <span class="use-tag">Energetic</span>
+                    </div>
+                    <button class="copy-palette" onclick="copyPalette(['#FF6B6B', '#FF8E53', '#FFD93D', '#6BCF7F'])">Copy Palette</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="category">
+            <h2 class="category-title">🌿 Nature & Organic</h2>
+            <div class="palette-grid">
+                <div class="palette-card">
+                    <h3 class="palette-name">Forest Haven</h3>
+                    <p class="palette-description">Earthy greens and browns inspired by nature - perfect for sustainable and eco-friendly brands.</p>
+                    <div class="color-strip">
+                        <div class="color-block" style="background: #2D5016"><span class="color-code">#2D5016</span></div>
+                        <div class="color-block" style="background: #68B030"><span class="color-code">#68B030</span></div>
+                        <div class="color-block" style="background: #A4D65E"><span class="color-code">#A4D65E</span></div>
+                        <div class="color-block" style="background: #F0F8E8"><span class="color-code">#F0F8E8</span></div>
+                    </div>
+                    <div class="use-case">
+                        <span class="use-tag">Eco-friendly</span>
+                        <span class="use-tag">Natural</span>
+                        <span class="use-tag">Sustainable</span>
+                    </div>
+                    <button class="copy-palette" onclick="copyPalette(['#2D5016', '#68B030', '#A4D65E', '#F0F8E8'])">Copy Palette</button>
+                </div>
+
+                <div class="palette-card">
+                    <h3 class="palette-name">Ocean Depths <span class="trend-indicator">CALM</span></h3>
+                    <p class="palette-description">Soothing blues and teals that convey trust, stability, and tranquility.</p>
+                    <div class="color-strip">
+                        <div class="color-block" style="background: #003f7f"><span class="color-code">#003f7f</span></div>
+                        <div class="color-block" style="background: #0074cc"><span class="color-code">#0074cc</span></div>
+                        <div class="color-block" style="background: #41a8f5"><span class="color-code">#41a8f5</span></div>
+                        <div class="color-block" style="background: #e3f2fd"><span class="color-code">#e3f2fd</span></div>
+                    </div>
+                    <div class="use-case">
+                        <span class="use-tag">Trust</span>
+                        <span class="use-tag">Professional</span>
+                        <span class="use-tag">Calming</span>
+                    </div>
+                    <button class="copy-palette" onclick="copyPalette(['#003f7f', '#0074cc', '#41a8f5', '#e3f2fd'])">Copy Palette</button>
+                </div>
+
+                <div class="palette-card">
+                    <h3 class="palette-name">Desert Sand</h3>
+                    <p class="palette-description">Warm desert tones that create a sophisticated and grounded aesthetic.</p>
+                    <div class="color-strip">
+                        <div class="color-block" style="background: #8B4513"><span class="color-code">#8B4513</span></div>
+                        <div class="color-block" style="background: #D2691E"><span class="color-code">#D2691E</span></div>
+                        <div class="color-block" style="background: #F4A460"><span class="color-code">#F4A460</span></div>
+                        <div class="color-block" style="background: #FDF5E6"><span class="color-code">#FDF5E6</span></div>
+                    </div>
+                    <div class="use-case">
+                        <span class="use-tag">Sophisticated</span>
+                        <span class="use-tag">Warm</span>
+                        <span class="use-tag">Grounded</span>
+                    </div>
+                    <button class="copy-palette" onclick="copyPalette(['#8B4513', '#D2691E', '#F4A460', '#FDF5E6'])">Copy Palette</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="category">
+            <h2 class="category-title">📈 Marketing & Agency Focused</h2>
+            <div class="palette-grid">
+                <div class="palette-card">
+                    <h3 class="palette-name">Conversion Champion <span class="trend-indicator">HIGH ROI</span></h3>
+                    <p class="palette-description">Research-backed colors that increase conversions: orange for urgency, blue for trust, white for clarity.</p>
+                    <div class="color-strip">
+                        <div class="color-block" style="background: #FF6600"><span class="color-code">#FF6600</span></div>
+                        <div class="color-block" style="background: #0066CC"><span class="color-code">#0066CC</span></div>
+                        <div class="color-block" style="background: #F8F9FA"><span class="color-code">#F8F9FA</span></div>
+                        <div class="color-block" style="background: #2C3E50"><span class="color-code">#2C3E50</span></div>
+                    </div>
+                    <div class="use-case">
+                        <span class="use-tag">High Conversion</span>
+                        <span class="use-tag">CTA Focused</span>
+                        <span class="use-tag">Data-Driven</span>
+                    </div>
+                    <button class="copy-palette" onclick="copyPalette(['#FF6600', '#0066CC', '#F8F9FA', '#2C3E50'])">Copy Palette</button>
+                    
+                    <div class="font-section">
+                        <div class="font-title">🔤 Perfect Font Pairings</div>
+                        <div class="font-pairs">
+                            <div class="font-pair" style="border-left-color: #FF6600;">
+                                <div class="font-primary" style="font-family: 'Inter', sans-serif;">Inter + Source Sans Pro</div>
+                                <div class="font-secondary" style="font-family: 'Source Sans Pro', sans-serif;">Clean, data-focused typography for conversion metrics</div>
+                                <div class="font-details">
+                                    <span>Headings: Inter Bold</span>
+                                    <span>Body: Source Sans Pro</span>
+                                    <span><a href="https://fonts.google.com/specimen/Inter" class="font-link" target="_blank">Get Fonts</a></span>
+                                </div>
+                            </div>
+                            <div class="font-pair" style="border-left-color: #0066CC;">
+                                <div class="font-primary" style="font-family: 'Roboto', sans-serif;">Roboto + Open Sans</div>
+                                <div class="font-secondary" style="font-family: 'Open Sans', sans-serif;">Trustworthy, professional combination for B2B trust</div>
+                                <div class="font-details">
+                                    <span>Headings: Roboto Medium</span>
+                                    <span>Body: Open Sans</span>
+                                    <span><a href="https://fonts.google.com/specimen/Roboto" class="font-link" target="_blank">Get Fonts</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="palette-card">
+                    <h3 class="palette-name">Creative Agency Bold</h3>
+                    <p class="palette-description">Eye-catching yellow and black combo that screams creativity and innovation - perfect for agencies.</p>
+                    <div class="color-strip">
+                        <div class="color-block" style="background: #000000"><span class="color-code">#000000</span></div>
+                        <div class="color-block" style="background: #FFD700"><span class="color-code">#FFD700</span></div>
+                        <div class="color-block" style="background: #FFF8DC"><span class="color-code">#FFF8DC</span></div>
+                        <div class="color-block" style="background: #FFFFFF"><span class="color-code">#FFFFFF</span></div>
+                    </div>
+                    <div class="use-case">
+                        <span class="use-tag">Agency</span>
+                        <span class="use-tag">Bold</span>
+                        <span class="use-tag">Memorable</span>
+                    </div>
+                    <button class="copy-palette" onclick="copyPalette(['#000000', '#FFD700', '#FFF8DC', '#FFFFFF'])">Copy Palette</button>
+                    
+                    <div class="font-section">
+                        <div class="font-title">🔤 Perfect Font Pairings</div>
+                        <div class="font-pairs">
+                            <div class="font-pair" style="border-left-color: #FFD700;">
+                                <div class="font-primary" style="font-family: 'Oswald', sans-serif; text-transform: uppercase;">Oswald + Lato</div>
+                                <div class="font-secondary" style="font-family: 'Lato', sans-serif;">Bold headlines with readable body text - agency favorite</div>
+                                <div class="font-details">
+                                    <span>Headings: Oswald Bold</span>
+                                    <span>Body: Lato Regular</span>
+                                    <span><a href="https://fonts.google.com/specimen/Oswald" class="font-link" target="_blank">Get Fonts</a></span>
+                                </div>
+                            </div>
+                            <div class="font-pair" style="border-left-color: #000000;">
+                                <div class="font-primary" style="font-family: 'Montserrat', sans-serif;">Montserrat + Merriweather</div>
+                                <div class="font-secondary" style="font-family: 'Merriweather', serif;">Modern sans with classic serif for sophistication</div>
+                                <div class="font-details">
+                                    <span>Headings: Montserrat ExtraBold</span>
+                                    <span>Body: Merriweather</span>
+                                    <span><a href="https://fonts.google.com/specimen/Montserrat" class="font-link" target="_blank">Get Fonts</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="palette-card">
+                    <h3 class="palette-name">Growth Hacker Green</h3>
+                    <p class="palette-description">Green psychology for growth, success, and positive action - ideal for performance marketing portfolios.</p>
+                    <div class="color-strip">
+                        <div class="color-block" style="background: #0B5345"><span class="color-code">#0B5345</span></div>
+                        <div class="color-block" style="background: #16A085"><span class="color-code">#16A085</span></div>
+                        <div class="color-block" style="background: #7DCEA0"><span class="color-code">#7DCEA0</span></div>
+                        <div class="color-block" style="background: #E8F8F5"><span class="color-code">#E8F8F5</span></div>
+                    </div>
+                    <div class="use-case">
+                        <span class="use-tag">Growth</span>
+                        <span class="use-tag">Performance</span>
+                        <span class="use-tag">Success</span>
+                    </div>
+                    <button class="copy-palette" onclick="copyPalette(['#0B5345', '#16A085', '#7DCEA0', '#E8F8F5'])">Copy Palette</button>
+                    
+                    <div class="font-section">
+                        <div class="font-title">🔤 Perfect Font Pairings</div>
+                        <div class="font-pairs">
+                            <div class="font-pair" style="border-left-color: #16A085;">
+                                <div class="font-primary" style="font-family: 'Poppins', sans-serif;">Poppins + Nunito Sans</div>
+                                <div class="font-secondary" style="font-family: 'Nunito Sans', sans-serif;">Friendly, growth-oriented fonts that inspire confidence</div>
+                                <div class="font-details">
+                                    <span>Headings: Poppins SemiBold</span>
+                                    <span>Body: Nunito Sans</span>
+                                    <span><a href="https://fonts.google.com/specimen/Poppins" class="font-link" target="_blank">Get Fonts</a></span>
+                                </div>
+                            </div>
+                            <div class="font-pair" style="border-left-color: #7DCEA0;">
+                                <div class="font-primary" style="font-family: 'Work Sans', sans-serif;">Work Sans + PT Sans</div>
+                                <div class="font-secondary" style="font-family: 'PT Sans', sans-serif;">Professional yet approachable for SaaS and tech</div>
+                                <div class="font-details">
+                                    <span>Headings: Work Sans Bold</span>
+                                    <span>Body: PT Sans</span>
+                                    <span><a href="https://fonts.google.com/specimen/Work+Sans" class="font-link" target="_blank">Get Fonts</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="palette-card">
+                    <h3 class="palette-name">Electric Energy <span class="trend-indicator">VIRAL</span></h3>
+                    <p class="palette-description">High-energy colors that grab attention and convey innovation - perfect for social media marketing.</p>
+                    <div class="color-strip">
+                        <div class="color-block" style="background: #FF1744"><span class="color-code">#FF1744</span></div>
+                        <div class="color-block" style="background: #FF6B00"><span class="color-code">#FF6B00</span></div>
+                        <div class="color-block" style="background: #00E676"><span class="color-code">#00E676</span></div>
+                        <div class="color-block" style="background: #1DE9B6"><span class="color-code">#1DE9B6</span></div>
+                    </div>
+                    <div class="use-case">
+                        <span class="use-tag">Social Media</span>
+                        <span class="use-tag">Viral</span>
+                        <span class="use-tag">Energetic</span>
+                    </div>
+                    <button class="copy-palette" onclick="copyPalette(['#FF1744', '#FF6B00', '#00E676', '#1DE9B6'])">Copy Palette</button>
+                    
+                    <div class="font-section">
+                        <div class="font-title">🔤 Perfect Font Pairings</div>
+                        <div class="font-pairs">
+                            <div class="font-pair" style="border-left-color: #FF1744;">
+                                <div class="font-primary" style="font-family: 'Bebas Neue', sans-serif; text-transform: uppercase;">Bebas Neue + Space Grotesk</div>
+                                <div class="font-secondary" style="font-family: 'Space Grotesk', sans-serif;">High-impact headlines with modern, tech-savvy body text</div>
+                                <div class="font-details">
+                                    <span>Headings: Bebas Neue</span>
+                                    <span>Body: Space Grotesk</span>
+                                    <span><a href="https://fonts.google.com/specimen/Bebas+Neue" class="font-link" target="_blank">Get Fonts</a></span>
+                                </div>
+                            </div>
+                            <div class="font-pair" style="border-left-color: #00E676;">
+                                <div class="font-primary" style="font-family: 'Archivo Black', sans-serif;">Archivo Black + DM Sans</div>
+                                <div class="font-secondary" style="font-family: 'DM Sans', sans-serif;">Bold, attention-grabbing for viral social content</div>
+                                <div class="font-details">
+                                    <span>Headings: Archivo Black</span>
+                                    <span>Body: DM Sans</span>
+                                    <span><a href="https://fonts.google.com/specimen/Archivo+Black" class="font-link" target="_blank">Get Fonts</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="palette-card">
+                    <h3 class="palette-name">Corporate Trust</h3>
+                    <p class="palette-description">Professional blues and grays that build trust and credibility - perfect for B2B marketing portfolios.</p>
+                    <div class="color-strip">
+                        <div class="color-block" style="background: #1B365D"><span class="color-code">#1B365D</span></div>
+                        <div class="color-block" style="background: #2E86AB"><span class="color-code">#2E86AB</span></div>
+                        <div class="color-block" style="background: #A23B72"><span class="color-code">#A23B72</span></div>
+                        <div class="color-block" style="background: #F18F01"><span class="color-code">#F18F01</span></div>
+                    </div>
+                    <div class="use-case">
+                        <span class="use-tag">B2B</span>
+                        <span class="use-tag">Trust</span>
+                        <span class="use-tag">Professional</span>
+                    </div>
+                    <button class="copy-palette" onclick="copyPalette(['#1B365D', '#2E86AB', '#A23B72', '#F18F01'])">Copy Palette</button>
+                    
+                    <div class="font-section">
+                        <div class="font-title">🔤 Perfect Font Pairings</div>
+                        <div class="font-pairs">
+                            <div class="font-pair" style="border-left-color: #2E86AB;">
+                                <div class="font-primary" style="font-family: 'Playfair Display', serif;">Playfair Display + Source Sans Pro</div>
+                                <div class="font-secondary" style="font-family: 'Source Sans Pro', sans-serif;">Elegant serif with clean sans for corporate sophistication</div>
+                                <div class="font-details">
+                                    <span>Headings: Playfair Display Bold</span>
+                                    <span>Body: Source Sans Pro</span>
+                                    <span><a href="https://fonts.google.com/specimen/Playfair+Display" class="font-link" target="_blank">Get Fonts</a></span>
+                                </div>
+                            </div>
+                            <div class="font-pair" style="border-left-color: #1B365D;">
+                                <div class="font-primary" style="font-family: 'IBM Plex Sans', sans-serif;">IBM Plex Sans + IBM Plex Serif</div>
+                                <div class="font-secondary" style="font-family: 'IBM Plex Serif', serif;">Corporate-grade typography system for B2B trust</div>
+                                <div class="font-details">
+                                    <span>Headings: IBM Plex Sans Bold</span>
+                                    <span>Body: IBM Plex Serif</span>
+                                    <span><a href="https://fonts.google.com/specimen/IBM+Plex+Sans" class="font-link" target="_blank">Get Fonts</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="palette-card">
+                    <h3 class="palette-name">Coral Fusion 2024</h3>
+                    <p class="palette-description">Trending coral and pink blend targeting younger demographics - perfect for lifestyle and consumer brands.</p>
+                    <div class="color-strip">
+                        <div class="color-block" style="background: #FF6B6B"><span class="color-code">#FF6B6B</span></div>
+                        <div class="color-block" style="background: #FF8E8E"><span class="color-code">#FF8E8E</span></div>
+                        <div class="color-block" style="background: #FFB3B3"><span class="color-code">#FFB3B3</span></div>
+                        <div class="color-block" style="background: #FFF0F0"><span class="color-code">#FFF0F0</span></div>
+                    </div>
+                    <div class="use-case">
+                        <span class="use-tag">Lifestyle</span>
+                        <span class="use-tag">Young Demographic</span>
+                        <span class="use-tag">Trendy</span>
+                    </div>
+                    <button class="copy-palette" onclick="copyPalette(['#FF6B6B', '#FF8E8E', '#FFB3B3', '#FFF0F0'])">Copy Palette</button>
+                    
+                    <div class="font-section">
+                        <div class="font-title">🔤 Perfect Font Pairings</div>
+                        <div class="font-pairs">
+                            <div class="font-pair" style="border-left-color: #FF6B6B;">
+                                <div class="font-primary" style="font-family: 'Quicksand', sans-serif;">Quicksand + Inter</div>
+                                <div class="font-secondary" style="font-family: 'Inter', sans-serif;">Playful, rounded fonts perfect for lifestyle brands</div>
+                                <div class="font-details">
+                                    <span>Headings: Quicksand Bold</span>
+                                    <span>Body: Inter</span>
+                                    <span><a href="https://fonts.google.com/specimen/Quicksand" class="font-link" target="_blank">Get Fonts</a></span>
+                                </div>
+                            </div>
+                            <div class="font-pair" style="border-left-color: #FF8E8E;">
+                                <div class="font-primary" style="font-family: 'Comfortaa', sans-serif;">Comfortaa + Rubik</div>
+                                <div class="font-secondary" style="font-family: 'Rubik', sans-serif;">Friendly, approachable for Gen Z targeting</div>
+                                <div class="font-details">
+                                    <span>Headings: Comfortaa Bold</span>
+                                    <span>Body: Rubik</span>
+                                    <span><a href="https://fonts.google.com/specimen/Comfortaa" class="font-link" target="_blank">Get Fonts</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="category">
+            <h2 class="category-title">✨ Luxury & Premium</h2>
+            <div class="palette-grid">
+                <div class="palette-card">
+                    <h3 class="palette-name">Golden Hour <span class="trend-indicator">PREMIUM</span></h3>
+                    <p class="palette-description">Luxurious gold and deep colors for high-end portfolios and premium brands.</p>
+                    <div class="color-strip">
+                        <div class="color-block" style="background: #1a1a1a"><span class="color-code">#1a1a1a</span></div>
+                        <div class="color-block" style="background: #8B4513"><span class="color-code">#8B4513</span></div>
+                        <div class="color-block" style="background: #DAA520"><span class="color-code">#DAA520</span></div>
+                        <div class="color-block" style="background: #F5F5DC"><span class="color-code">#F5F5DC</span></div>
+                    </div>
+                    <div class="use-case">
+                        <span class="use-tag">Luxury</span>
+                        <span class="use-tag">Premium</span>
+                        <span class="use-tag">Elegant</span>
+                    </div>
+                    <button class="copy-palette" onclick="copyPalette(['#1a1a1a', '#8B4513', '#DAA520', '#F5F5DC'])">Copy Palette</button>
+                </div>
+
+                <div class="palette-card">
+                    <h3 class="palette-name">Royal Purple</h3>
+                    <p class="palette-description">Regal purples that convey creativity, wisdom, and sophistication.</p>
+                    <div class="color-strip">
+                        <div class="color-block" style="background: #4A0E4E"><span class="color-code">#4A0E4E</span></div>
+                        <div class="color-block" style="background: #7B2D8E"><span class="color-code">#7B2D8E</span></div>
+                        <div class="color-block" style="background: #B565A7"><span class="color-code">#B565A7</span></div>
+                        <div class="color-block" style="background: #F3E5F5"><span class="color-code">#F3E5F5</span></div>
+                    </div>
+                    <div class="use-case">
+                        <span class="use-tag">Creative</span>
+                        <span class="use-tag">Sophisticated</span>
+                        <span class="use-tag">Wisdom</span>
+                    </div>
+                    <button class="copy-palette" onclick="copyPalette(['#4A0E4E', '#7B2D8E', '#B565A7', '#F3E5F5'])">Copy Palette</button>
+                </div>
+
+                <div class="palette-card">
+                    <h3 class="palette-name">Midnight Elegance</h3>
+                    <p class="palette-description">Deep, rich colors with metallic accents for a sophisticated and mysterious feel.</p>
+                    <div class="color-strip">
+                        <div class="color-block" style="background: #0F0F23"><span class="color-code">#0F0F23</span></div>
+                        <div class="color-block" style="background: #232946"><span class="color-code">#232946</span></div>
+                        <div class="color-block" style="background: #B8A9C9"><span class="color-code">#B8A9C9</span></div>
+                        <div class="color-block" style="background: #E4DCCF"><span class="color-code">#E4DCCF</span></div>
+                    </div>
+                    <div class="use-case">
+                        <span class="use-tag">Mysterious</span>
+                        <span class="use-tag">Elegant</span>
+                        <span class="use-tag">Deep</span>
+                    </div>
+                    <button class="copy-palette" onclick="copyPalette(['#0F0F23', '#232946', '#B8A9C9', '#E4DCCF'])">Copy Palette</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast">Color palette copied to clipboard!</div>
+
+    <script>
+        function copyPalette(colors) {
+            const paletteText = colors.join(', ');
+            navigator.clipboard.writeText(paletteText).then(() => {
+                showToast();
+            }).catch(() => {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = paletteText;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                showToast();
+            });
+        }
+
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Add hover effects and animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.palette-card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
+</body>
+</html>
