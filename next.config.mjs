@@ -18,6 +18,7 @@ const nextConfig = {
   },
   // Add trailing slashes to ensure proper routing
   trailingSlash: true,
+  // Force a full rebuild on Vercel
 }
 
 export default nextConfig
