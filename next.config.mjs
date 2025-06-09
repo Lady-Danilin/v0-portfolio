@@ -9,6 +9,12 @@ const nextConfig = {
   },
   images: {
     unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
   },
   // Add trailing slashes to ensure proper routing
   trailingSlash: true,
@@ -16,8 +22,8 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: '/',
-        destination: '/index.html',
+        source: '/Images/:path*',
+        destination: '/Images/:path*',
       },
     ]
   },
