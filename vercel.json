@@ -5,9 +5,6 @@
       "NEXT_PUBLIC_VERCEL_ENV": "production"
     }
   },
-  "static": {
-    "maxAge": 31536000
-  },
   "headers": [
     {
       "source": "/static/Images/(.*)",
