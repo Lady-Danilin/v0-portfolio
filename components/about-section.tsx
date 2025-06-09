@@ -142,7 +142,7 @@ export function AboutSection() {
             <div className="relative group">
               <div className="w-80 h-96 rounded-2xl overflow-hidden shadow-xl border-4 border-white dark:border-gray-800 transition-transform duration-300 group-hover:scale-105">
                 <Image
-                  src="/Images/RETRATO - LA CUEVA ARG-389.jpg"
+                  src="/Images/retrato-la-cueva-arg-389.jpg"
                   alt="Daniela Ayelén Argüello - About Photo"
                   width={320}
                   height={400}

@@ -81,8 +81,8 @@ export function BroadcasterSection() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {[
-                { src: "/Images/RETRATO - LA CUEVA ARG-379.jpg", caption: "Voice & Presence" },
-                { src: "/Images/RETRATO - LA CUEVA ARG-383.jpg", caption: "Studio Session" },
+                { src: "/Images/retrato-la-cueva-arg-379.jpg", caption: "Voice & Presence" },
+                { src: "/Images/retrato-la-cueva-arg-383.jpg", caption: "Studio Session" },
               ].map((image, index) => (
                 <div key={index} className="group">
                   <div className="relative overflow-hidden rounded-lg shadow-lg">
