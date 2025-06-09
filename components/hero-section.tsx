@@ -93,7 +93,7 @@ export function HeroSection() {
             <div className="relative group">
               <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-white shadow-2xl transition-transform duration-300 group-hover:scale-105">
                 <Image
-                  src="/Images/retrato-la-cueva-arg-374.jpg"
+                  src="/static/Images/retrato-la-cueva-arg-374.jpg"
                   alt="Daniela Ayelén Argüello - Professional Photo"
                   width={400}
                   height={400}
