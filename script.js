@@ -612,4 +612,4 @@ if (scrollIndicator) {
             aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     });
-} 
+}

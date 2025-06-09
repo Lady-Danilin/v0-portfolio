@@ -59,7 +59,7 @@ Edit the following sections in `index.html`:
 #### Colors
 The main color scheme uses a blue-purple gradient. To change colors, update these CSS variables in `styles.css`:
 
-```css
+\`\`\`css
 /* Primary gradient colors */
 #667eea /* Light blue */
 #764ba2 /* Purple */
@@ -67,7 +67,7 @@ The main color scheme uses a blue-purple gradient. To change colors, update thes
 /* Background colors */
 #f5f7fa /* Light gray */
 #c3cfe2 /* Light blue-gray */
-```
+\`\`\`
 
 #### Fonts
 The website uses Inter font from Google Fonts. To change the font:
@@ -105,13 +105,13 @@ The website is fully responsive with breakpoints at:
 ## 🔧 Technical Details
 
 ### File Structure
-```
+\`\`\`
 portfolio/
 ├── index.html          # Main HTML file
 ├── styles.css          # CSS styling
 ├── script.js           # JavaScript functionality
 └── README.md          # This file
-```
+\`\`\`
 
 ### Dependencies
 - **Font Awesome**: Icons (loaded via CDN)
@@ -179,4 +179,4 @@ Feel free to submit issues and enhancement requests!
 
 **Built with ❤️ for Daniela Ayelén Argüello**
 
-For questions or support, please open an issue or contact through the portfolio website. 
+For questions or support, please open an issue or contact through the portfolio website.

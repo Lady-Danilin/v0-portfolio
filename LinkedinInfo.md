@@ -1,4 +1,3 @@
-
 Conocimientos y aptitudes
 Todo
 Conocimiento del sector
