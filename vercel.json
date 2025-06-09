@@ -1,0 +1,18 @@
+{
+  "build": {
+    "env": {
+      "NEXT_PUBLIC_VERCEL_ENV": "production"
+    }
+  },
+  "static": {
+    "maxAge": 31536000
+  },
+  "headers": [
+    {
+      "source": "/static/Images/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    }
+  ]
+} 
