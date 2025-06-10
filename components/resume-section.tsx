@@ -69,7 +69,7 @@ export function ResumeSection() {
               <Button
                 asChild
                 size="lg"
-                className="w-full bg-white text-[#FF6600] hover:bg-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                className="w-full bg-white text-[#FF6600] hover:bg-gray-100 hover:text-[#0066CC] shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               >
                 <a href="/assets/cv/CV_Daniela_Arguello_EN.txt" download>
                   <Download className="mr-2 h-4 w-4" />
@@ -80,8 +80,7 @@ export function ResumeSection() {
               <Button
                 asChild
                 size="lg"
-                variant="outline"
-                className="w-full border-white text-white hover:bg-white hover:text-[#0066CC] shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                className="w-full bg-white text-[#FF6600] hover:bg-gray-100 hover:text-[#0066CC] shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               >
                 <a href="/assets/cv/CV_Daniela_Arguello_ES.txt" download>
                   <Download className="mr-2 h-4 w-4" />
