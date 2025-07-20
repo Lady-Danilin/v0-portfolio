@@ -97,7 +97,7 @@ export function HeroSection() {
                   alt="Daniela Ayelén Argüello - Professional Photo"
                   width={400}
                   height={400}
-                  className="w-full h-full object-cover object-center grayscale group-hover:grayscale-0 transition-all duration-500"
+                  className="w-full h-full object-cover object-center translate-y-[5px] grayscale group-hover:grayscale-0 transition-all duration-500"
                   priority
                 />
               </div>

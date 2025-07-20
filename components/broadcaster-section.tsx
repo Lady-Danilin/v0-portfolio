@@ -91,7 +91,7 @@ export function BroadcasterSection() {
                       alt={image.caption}
                       width={300}
                       height={400}
-                      className="w-full h-80 object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
+                      className="w-full h-80 object-cover translate-y-[5px] grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
                     />
                   </div>
                   <p className="text-center text-sm text-muted-foreground mt-2 font-medium">{image.caption}</p>

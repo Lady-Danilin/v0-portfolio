@@ -146,7 +146,7 @@ export function AboutSection() {
                   alt="Daniela Ayelén Argüello - About Photo"
                   width={320}
                   height={400}
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                  className="w-full h-full object-cover translate-y-[5px] grayscale group-hover:grayscale-0 transition-all duration-500"
                 />
               </div>
 
