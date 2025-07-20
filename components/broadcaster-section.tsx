@@ -42,7 +42,7 @@ export function BroadcasterSection() {
                 </div>
 
                 <audio controls className="w-full mb-4" preload="metadata">
-                  <source src="/assets/audio/presentacion_locutora.mp3" type="audio/mpeg" />
+                  <source src="/audios/demo2025.mp3" type="audio/mpeg" />
                   Your browser does not support the audio element.
                 </audio>
 
