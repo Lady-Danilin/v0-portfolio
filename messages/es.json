@@ -1,0 +1,222 @@
+{
+  "metadata": {
+    "title": "Daniela Ayelén Argüello - Estratega de Comunicación Digital y Marketing",
+    "description": "Apasionada por la comunicación digital, estrategia en redes sociales y creación de contenido. Especializada en construir comunidades digitales y desarrollar estrategias de marketing integrales."
+  },
+  "navigation": {
+    "home": "Inicio",
+    "about": "Acerca de",
+    "experience": "Experiencia",
+    "skills": "Habilidades",
+    "projects": "Proyectos",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "greeting": "Hola, soy",
+    "name": "Daniela Ayelén Argüello",
+    "subtitles": {
+      "strategist": "Estratega de Comunicación Digital",
+      "socialMedia": "Experta en Redes Sociales",
+      "contentCreator": "Creadora de Contenido",
+      "marketing": "Especialista en Marketing Digital",
+      "professional": "Profesional de la Comunicación"
+    },
+    "description": "Apasionada por la comunicación digital, estrategia en redes sociales y creación de contenido. Me especializo en construir comunidades digitales, desarrollar estrategias de marketing integrales y crear contenido atractivo que genera resultados en múltiples plataformas.",
+    "getInTouch": "Contáctame",
+    "viewWork": "Ver Mi Trabajo"
+  },
+  "about": {
+    "title": "Acerca de Mí",
+    "subtitle": "Comunicadora Digital Apasionada",
+    "description1": "Con más de 10 años de experiencia en comunicación digital y marketing, he ayudado a numerosas marcas a establecer su presencia en línea y conectar con sus audiencias de manera auténtica.",
+    "description2": "Mi trayectoria en comunicación digital comenzó con una pasión por contar historias y evolucionó hacia la experiencia en estrategia de redes sociales, creación de contenido y desarrollo de marca. Creo en el poder de la comunicación auténtica para construir relaciones duraderas entre las marcas y sus comunidades.",
+    "description3": "Cuando no estoy creando estrategias digitales, me encontrarás explorando nuevas salidas creativas, manteniéndome actualizada con las últimas tendencias digitales o compartiendo conocimientos con otros profesionales del campo.",
+    "stats": {
+      "experience": "Años de Experiencia",
+      "clients": "Clientes Atendidos",
+      "satisfaction": "Satisfacción del Cliente"
+    }
+  },
+  "resume": {
+    "title": "Currículum",
+    "subtitle": "Trayectoria Profesional",
+    "downloadEN": "Descargar CV (Inglés)",
+    "downloadES": "Descargar CV (Español)",
+    "viewEN": "Ver CV (Inglés)",
+    "viewES": "Ver CV (Español)"
+  },
+  "experience": {
+    "title": "Experiencia",
+    "subtitle": "Trayectoria Profesional",
+    "current": "Actual",
+    "achievements": "Logros Clave:",
+    "positions": {
+      "digitalStrategist": {
+        "title": "Estratega de Comunicación Digital",
+        "company": "Freelance",
+        "period": "2020 - Presente",
+        "description": "Liderando estrategias integrales de comunicación digital para diversas marcas y organizaciones.",
+        "achievements": [
+          "Desarrollé y ejecuté estrategias de redes sociales aumentando el engagement en 150%",
+          "Creé calendarios de contenido y gestioné campañas multiplataforma",
+          "Brindé servicios de consultoría para iniciativas de transformación digital"
+        ]
+      },
+      "socialMediaManager": {
+        "title": "Gestora de Redes Sociales",
+        "company": "Agencia de Marketing",
+        "period": "2018 - 2020",
+        "description": "Gestioné cuentas de redes sociales para múltiples clientes en diferentes industrias.",
+        "achievements": [
+          "Aumenté el número de seguidores de los clientes en un promedio del 200%",
+          "Implementé estrategias basadas en datos para optimizar el rendimiento del contenido",
+          "Coordiné con equipos creativos para producir contenido multimedia atractivo"
+        ]
+      },
+      "contentCreator": {
+        "title": "Creadora de Contenido",
+        "company": "Estudio Digital",
+        "period": "2015 - 2018",
+        "description": "Creé contenido atractivo para plataformas digitales y campañas de marketing.",
+        "achievements": [
+          "Produje contenido viral alcanzando millones de impresiones",
+          "Desarrollé guías de voz de marca para múltiples clientes",
+          "Lideré talleres de estrategia de contenido y sesiones de capacitación"
+        ]
+      }
+    }
+  },
+  "skills": {
+    "title": "Habilidades",
+    "subtitle": "Experiencia Técnica",
+    "categories": {
+      "digitalMarketing": "Marketing Digital",
+      "contentCreation": "Creación de Contenido",
+      "analytics": "Análisis y Herramientas",
+      "design": "Diseño",
+      "languages": "Idiomas"
+    },
+    "items": {
+      "socialStrategy": "Estrategia de Redes Sociales",
+      "contentMarketing": "Marketing de Contenidos",
+      "seo": "SEO/SEM",
+      "emailMarketing": "Email Marketing",
+      "copywriting": "Redacción Publicitaria",
+      "videoEditing": "Edición de Video",
+      "photography": "Fotografía",
+      "graphicDesign": "Diseño Gráfico",
+      "googleAnalytics": "Google Analytics",
+      "metaBusiness": "Meta Business Suite",
+      "hootsuite": "Hootsuite",
+      "canva": "Canva",
+      "adobeCreative": "Adobe Creative Suite",
+      "figma": "Figma",
+      "sketch": "Sketch",
+      "photoshop": "Photoshop",
+      "spanish": "Español (Nativo)",
+      "english": "Inglés (Fluido)",
+      "portuguese": "Portugués (Intermedio)"
+    }
+  },
+  "broadcaster": {
+    "title": "Locutora y Artista de Voz",
+    "subtitle": "Servicios Profesionales de Voz",
+    "description": "Más allá del marketing digital, aporto experiencia profesional en locución con una voz cálida y atractiva perfecta para comerciales, narraciones y presentaciones corporativas.",
+    "services": {
+      "commercial": {
+        "title": "Locuciones Comerciales",
+        "description": "Voz atractiva para anuncios y contenido promocional"
+      },
+      "corporate": {
+        "title": "Narración Corporativa",
+        "description": "Narración profesional para videos de capacitación y presentaciones"
+      },
+      "podcast": {
+        "title": "Conducción de Podcasts",
+        "description": "Conducción dinámica y entrevistas para producciones de podcast"
+      }
+    },
+    "demo": "Escuchar Demo",
+    "imageAlt": "Configuración profesional de estudio de grabación"
+  },
+  "uxui": {
+    "title": "Diseño UX/UI",
+    "subtitle": "Soluciones de Diseño Centradas en el Usuario",
+    "description": "Combinando creatividad con investigación de usuarios para diseñar experiencias digitales intuitivas y estéticamente agradables que deleitan a los usuarios y logran objetivos comerciales.",
+    "skills": {
+      "research": {
+        "title": "Investigación de Usuarios",
+        "description": "Realizando entrevistas, encuestas y pruebas de usabilidad"
+      },
+      "wireframing": {
+        "title": "Wireframing y Prototipado",
+        "description": "Creando prototipos de baja y alta fidelidad en Figma"
+      },
+      "systems": {
+        "title": "Sistemas de Diseño",
+        "description": "Construyendo sistemas de diseño consistentes y escalables"
+      },
+      "responsive": {
+        "title": "Diseño Responsivo",
+        "description": "Diseñando para múltiples dispositivos y tamaños de pantalla"
+      }
+    }
+  },
+  "projects": {
+    "title": "Proyectos",
+    "subtitle": "Trabajos Destacados",
+    "viewProject": "Ver Proyecto",
+    "items": {
+      "campaign": {
+        "title": "Campaña en Redes Sociales",
+        "description": "Campaña digital integral que aumentó el conocimiento de marca en un 200%"
+      },
+      "branding": {
+        "title": "Diseño de Identidad de Marca",
+        "description": "Rediseño completo de marca incluyendo logo, guías y activos digitales"
+      },
+      "website": {
+        "title": "Sitio Web E-commerce",
+        "description": "Diseño UX/UI para tienda en línea con mejora del 50% en tasa de conversión"
+      }
+    }
+  },
+  "contact": {
+    "title": "Contacto",
+    "subtitle": "Creemos Algo Increíble Juntos",
+    "info": {
+      "title": "Información de Contacto",
+      "cta": {
+        "title": "Creemos Algo Increíble Juntos",
+        "description": "Ya sea que necesites estrategia de marketing digital, creación de contenido o diseño UX/UI, estoy aquí para ayudarte a dar vida a tu visión. Hablemos sobre cómo podemos trabajar juntos para alcanzar tus objetivos."
+      }
+    },
+    "form": {
+      "name": "Tu Nombre",
+      "namePlaceholder": "Juan Pérez",
+      "email": "Tu Email",
+      "emailPlaceholder": "juan@ejemplo.com",
+      "message": "Tu Mensaje",
+      "messagePlaceholder": "Cuéntame sobre tu proyecto...",
+      "send": "Enviar Mensaje",
+      "sending": "Enviando...",
+      "success": "¡Mensaje enviado con éxito!",
+      "error": "Error al enviar el mensaje. Por favor intenta de nuevo.",
+      "subject": "Asunto",
+      "subjectPlaceholder": "¿De qué se trata?"
+    },
+    "details": {
+      "email": "Correo",
+      "phone": "Teléfono",
+      "location": "Ubicación",
+      "argentina": "Córdoba, Argentina",
+      "availability": "Disponibilidad",
+      "freelance": "Disponible para Freelance"
+    }
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados.",
+    "madeWith": "Hecho con",
+    "by": "por"
+  }
+}

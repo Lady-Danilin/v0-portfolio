@@ -1,0 +1,222 @@
+{
+  "metadata": {
+    "title": "Daniela Ayelén Argüello - Digital Communication & Marketing Strategist",
+    "description": "Passionate about digital communication, social media strategy, and content creation. Specializing in building digital communities and developing comprehensive marketing strategies."
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "experience": "Experience",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "name": "Daniela Ayelén Argüello",
+    "subtitles": {
+      "strategist": "Digital Communication Strategist",
+      "socialMedia": "Social Media Expert",
+      "contentCreator": "Content Creator",
+      "marketing": "Digital Marketing Specialist",
+      "professional": "Communication Professional"
+    },
+    "description": "Passionate about digital communication, social media strategy, and content creation. I specialize in building digital communities, developing comprehensive marketing strategies, and creating engaging content that drives results across multiple platforms.",
+    "getInTouch": "Get In Touch",
+    "viewWork": "View My Work"
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "Passionate Digital Communicator",
+    "description1": "With over 10 years of experience in digital communication and marketing, I've helped numerous brands establish their online presence and connect with their audiences authentically.",
+    "description2": "My journey in digital communication began with a passion for storytelling and evolved into expertise in social media strategy, content creation, and brand development. I believe in the power of authentic communication to build lasting relationships between brands and their communities.",
+    "description3": "When I'm not crafting digital strategies, you'll find me exploring new creative outlets, staying updated with the latest digital trends, or sharing knowledge with fellow professionals in the field.",
+    "stats": {
+      "experience": "Years Experience",
+      "clients": "Clients Served",
+      "satisfaction": "Client Satisfaction"
+    }
+  },
+  "resume": {
+    "title": "Resume",
+    "subtitle": "Professional Background",
+    "downloadEN": "Download CV (English)",
+    "downloadES": "Download CV (Spanish)",
+    "viewEN": "View CV (English)",
+    "viewES": "View CV (Spanish)"
+  },
+  "experience": {
+    "title": "Experience",
+    "subtitle": "Professional Journey",
+    "current": "Current",
+    "achievements": "Key Achievements:",
+    "positions": {
+      "digitalStrategist": {
+        "title": "Digital Communication Strategist",
+        "company": "Freelance",
+        "period": "2020 - Present",
+        "description": "Leading comprehensive digital communication strategies for various brands and organizations.",
+        "achievements": [
+          "Developed and executed social media strategies increasing engagement by 150%",
+          "Created content calendars and managed multi-platform campaigns",
+          "Provided consulting services for digital transformation initiatives"
+        ]
+      },
+      "socialMediaManager": {
+        "title": "Social Media Manager",
+        "company": "Marketing Agency",
+        "period": "2018 - 2020",
+        "description": "Managed social media accounts for multiple clients across different industries.",
+        "achievements": [
+          "Grew client social media following by average of 200%",
+          "Implemented data-driven strategies to optimize content performance",
+          "Coordinated with creative teams to produce engaging multimedia content"
+        ]
+      },
+      "contentCreator": {
+        "title": "Content Creator",
+        "company": "Digital Studio",
+        "period": "2015 - 2018",
+        "description": "Created compelling content for digital platforms and marketing campaigns.",
+        "achievements": [
+          "Produced viral content reaching millions of impressions",
+          "Developed brand voice guidelines for multiple clients",
+          "Led content strategy workshops and training sessions"
+        ]
+      }
+    }
+  },
+  "skills": {
+    "title": "Skills",
+    "subtitle": "Technical Expertise",
+    "categories": {
+      "digitalMarketing": "Digital Marketing",
+      "contentCreation": "Content Creation",
+      "analytics": "Analytics & Tools",
+      "design": "Design",
+      "languages": "Languages"
+    },
+    "items": {
+      "socialStrategy": "Social Media Strategy",
+      "contentMarketing": "Content Marketing",
+      "seo": "SEO/SEM",
+      "emailMarketing": "Email Marketing",
+      "copywriting": "Copywriting",
+      "videoEditing": "Video Editing",
+      "photography": "Photography",
+      "graphicDesign": "Graphic Design",
+      "googleAnalytics": "Google Analytics",
+      "metaBusiness": "Meta Business Suite",
+      "hootsuite": "Hootsuite",
+      "canva": "Canva",
+      "adobeCreative": "Adobe Creative Suite",
+      "figma": "Figma",
+      "sketch": "Sketch",
+      "photoshop": "Photoshop",
+      "spanish": "Spanish (Native)",
+      "english": "English (Fluent)",
+      "portuguese": "Portuguese (Intermediate)"
+    }
+  },
+  "broadcaster": {
+    "title": "Broadcaster & Voice Artist",
+    "subtitle": "Professional Voice Services",
+    "description": "Beyond digital marketing, I bring professional broadcasting experience with a warm, engaging voice perfect for commercials, narrations, and corporate presentations.",
+    "services": {
+      "commercial": {
+        "title": "Commercial Voice-Overs",
+        "description": "Engaging voice for advertisements and promotional content"
+      },
+      "corporate": {
+        "title": "Corporate Narration",
+        "description": "Professional narration for training videos and presentations"
+      },
+      "podcast": {
+        "title": "Podcast Hosting",
+        "description": "Dynamic hosting and interviewing for podcast productions"
+      }
+    },
+    "demo": "Listen to Demo",
+    "imageAlt": "Professional broadcasting studio setup"
+  },
+  "uxui": {
+    "title": "UX/UI Design",
+    "subtitle": "User-Centered Design Solutions",
+    "description": "Combining creativity with user research to design intuitive and aesthetically pleasing digital experiences that delight users and achieve business goals.",
+    "skills": {
+      "research": {
+        "title": "User Research",
+        "description": "Conducting user interviews, surveys, and usability testing"
+      },
+      "wireframing": {
+        "title": "Wireframing & Prototyping",
+        "description": "Creating low and high-fidelity prototypes in Figma"
+      },
+      "systems": {
+        "title": "Design Systems",
+        "description": "Building consistent and scalable design systems"
+      },
+      "responsive": {
+        "title": "Responsive Design",
+        "description": "Designing for multiple devices and screen sizes"
+      }
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "Featured Work",
+    "viewProject": "View Project",
+    "items": {
+      "campaign": {
+        "title": "Social Media Campaign",
+        "description": "Comprehensive digital campaign that increased brand awareness by 200%"
+      },
+      "branding": {
+        "title": "Brand Identity Design",
+        "description": "Complete brand redesign including logo, guidelines, and digital assets"
+      },
+      "website": {
+        "title": "E-commerce Website",
+        "description": "UX/UI design for online store with 50% conversion rate improvement"
+      }
+    }
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "subtitle": "Let's Create Something Amazing Together",
+    "info": {
+      "title": "Contact Information",
+      "cta": {
+        "title": "Let's Create Something Amazing Together",
+        "description": "Whether you need digital marketing strategy, content creation, or UX/UI design, I'm here to help bring your vision to life. Let's discuss how we can work together to achieve your goals."
+      }
+    },
+    "form": {
+      "name": "Your Name",
+      "namePlaceholder": "John Doe",
+      "email": "Your Email",
+      "emailPlaceholder": "john@example.com",
+      "message": "Your Message",
+      "messagePlaceholder": "Tell me about your project...",
+      "send": "Send Message",
+      "sending": "Sending...",
+      "success": "Message sent successfully!",
+      "error": "Failed to send message. Please try again.",
+      "subject": "Subject",
+      "subjectPlaceholder": "What's this about?"
+    },
+    "details": {
+      "email": "Email",
+      "phone": "Phone",
+      "location": "Location",
+      "argentina": "Córdoba, Argentina",
+      "availability": "Availability",
+      "freelance": "Available for Freelance"
+    }
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "madeWith": "Made with",
+    "by": "by"
+  }
+}

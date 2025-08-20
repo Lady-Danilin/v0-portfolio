@@ -4,35 +4,41 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ExternalLink, University, TrendingUp, Mic } from "lucide-react"
-
-const projects = [
-  {
-    icon: University,
-    title: "University Digital Communication Strategy",
-    description:
-      "Developed and implemented comprehensive digital communication strategies for FCEFyN UNC, focusing on social media planning and institutional communication initiatives.",
-    tags: ["Digital Strategy", "Social Media", "Education"],
-    gradient: "from-blue-500 to-purple-600",
-  },
-  {
-    icon: TrendingUp,
-    title: "BIOINGENIERIA Digital Transformation",
-    description:
-      "Led complete digital marketing overhaul including social media diagnostics, Google Ads campaigns, and brand development for a bioengineering equipment distributor.",
-    tags: ["Google Ads", "SEO", "Branding"],
-    gradient: "from-green-500 to-teal-600",
-  },
-  {
-    icon: Mic,
-    title: "Radio Mitre Digital Content",
-    description:
-      'Produced and managed digital content for agricultural journalism program "Mitre y el Campo", including social media strategy and guest coordination.',
-    tags: ["Radio Production", "Content Creation", "Journalism"],
-    gradient: "from-orange-500 to-red-600",
-  },
-]
+import { useTranslations } from 'next-intl'
 
 export function ProjectsSection() {
+  const t = useTranslations('projects')
+  
+  const projects = [
+    {
+      icon: University,
+      title: "University Digital Communication Strategy",
+      description:
+        "Developed and implemented comprehensive digital communication strategies for FCEFyN UNC, focusing on social media planning and institutional communication initiatives.",
+      tags: ["Digital Strategy", "Social Media", "Education"],
+      gradient: "from-blue-500 to-purple-600",
+      link: "#",
+    },
+    {
+      icon: TrendingUp,
+      title: "BIOINGENIERIA Digital Transformation",
+      description:
+        "Led complete digital marketing overhaul including social media diagnostics, Google Ads campaigns, and brand development for a bioengineering equipment distributor.",
+      tags: ["Google Ads", "SEO", "Branding"],
+      gradient: "from-green-500 to-teal-600",
+      link: "#",
+    },
+    {
+      icon: Mic,
+      title: "Radio Mitre Digital Content",
+      description:
+        'Produced and managed digital content for agricultural journalism program "Mitre y el Campo", including social media strategy and guest coordination.',
+      tags: ["Radio Production", "Content Creation", "Journalism"],
+      gradient: "from-orange-500 to-red-600",
+      link: "#",
+    },
+  ]
+  
   return (
     <section
       id="projects"
@@ -40,9 +46,9 @@ export function ProjectsSection() {
     >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold font-inter mb-4">Featured Projects</h2>
+          <h2 className="text-3xl md:text-4xl font-bold font-inter mb-4">{t('title')}</h2>
           <div className="w-16 h-1 bg-gradient-to-r from-[#0066CC] to-[#FF6600] mx-auto mb-4" />
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Some of my recent work</p>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{t('subtitle')}</p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -86,7 +92,7 @@ export function ProjectsSection() {
                   variant="ghost"
                   className="w-full group/btn hover:bg-[#0066CC] hover:text-white transition-all duration-300"
                 >
-                  Learn More
+                  {t('viewProject')}
                   <ExternalLink className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
                 </Button>
               </CardContent>

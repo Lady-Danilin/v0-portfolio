@@ -3,18 +3,11 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { ThemeToggle } from "./theme-toggle"
+import { LanguageSwitcher } from "./language-switcher"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
-
-const navigation = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Experience", href: "#experience" },
-  { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
-]
+import { useTranslations } from 'next-intl'
 
 const socialLinks = [
   {
@@ -32,6 +25,16 @@ const socialLinks = [
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const t = useTranslations('navigation')
+  
+  const navigation = [
+    { name: t('home'), href: "#home" },
+    { name: t('about'), href: "#about" },
+    { name: t('experience'), href: "#experience" },
+    { name: t('skills'), href: "#skills" },
+    { name: t('projects'), href: "#projects" },
+    { name: t('contact'), href: "#contact" },
+  ]
 
   useEffect(() => {
     const handleScroll = () => {
@@ -100,8 +103,9 @@ export function Header() {
             ))}
           </nav>
 
-          {/* Theme Toggle and Mobile Menu */}
+          {/* Theme Toggle, Language Switcher and Mobile Menu */}
           <div className="flex items-center space-x-4">
+            <LanguageSwitcher />
             <ThemeToggle />
 
             {/* Mobile Menu Button */}

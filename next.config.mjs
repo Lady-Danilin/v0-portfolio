@@ -1,3 +1,7 @@
+import createNextIntlPlugin from 'next-intl/plugin';
+
+const withNextIntl = createNextIntlPlugin();
+
 /** @type {import('next').NextConfig} */
 // Trigger new deployment
 const nextConfig = {
@@ -21,4 +25,4 @@ const nextConfig = {
   // Force a full rebuild on Vercel
 }
 
-export default nextConfig
+export default withNextIntl(nextConfig)

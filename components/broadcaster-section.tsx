@@ -3,8 +3,11 @@
 import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { Mic, Radio, Volume2 } from "lucide-react"
+import { useTranslations } from 'next-intl'
 
 export function BroadcasterSection() {
+  const t = useTranslations('broadcaster')
+  
   return (
     <section
       id="broadcaster"
@@ -12,10 +15,10 @@ export function BroadcasterSection() {
     >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold font-inter mb-4">Broadcaster & Voice Actor</h2>
+          <h2 className="text-3xl md:text-4xl font-bold font-inter mb-4">{t('title')}</h2>
           <div className="w-16 h-1 bg-gradient-to-r from-[#0066CC] to-[#FF6600] mx-auto mb-4" />
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Your Voice, Your Vision, Digitally Realized.
+            {t('subtitle')}
           </p>
         </div>
 
@@ -23,13 +26,11 @@ export function BroadcasterSection() {
           {/* Text Content */}
           <div className="space-y-6">
             <h3 className="text-2xl font-bold font-inter bg-gradient-to-r from-[#0066CC] to-[#FF6600] bg-clip-text text-transparent">
-              Your Professional Voice
+              {t('subtitle')}
             </h3>
 
             <p className="text-muted-foreground leading-relaxed">
-              With extensive experience in radio production and voice acting, I bring professionalism and versatility to
-              every project. From commercial advertising to narrative storytelling, my voice adapts to convey the right
-              tone and message for your brand.
+              {t('description')}
             </p>
 
             <Card className="bg-muted/50">
@@ -38,7 +39,7 @@ export function BroadcasterSection() {
                   <div className="w-10 h-10 bg-gradient-to-r from-[#0066CC] to-[#FF6600] rounded-full flex items-center justify-center">
                     <Volume2 className="h-5 w-5 text-white" />
                   </div>
-                  <h4 className="font-semibold">Main Presentation Audio</h4>
+                  <h4 className="font-semibold">{t('demo')}</h4>
                 </div>
 
                 <audio controls className="w-full mb-4" preload="metadata">
@@ -55,9 +56,9 @@ export function BroadcasterSection() {
             {/* Voice Services */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {[
-                { icon: Mic, title: "Commercial Voice", desc: "Professional advertising and promotional content" },
-                { icon: Radio, title: "Radio Production", desc: "Program hosting and radio content creation" },
-                { icon: Volume2, title: "Narrative Voice", desc: "Storytelling and documentary narration" },
+                { icon: Mic, title: t('services.commercial.title'), desc: t('services.commercial.description') },
+                { icon: Radio, title: t('services.corporate.title'), desc: t('services.corporate.description') },
+                { icon: Volume2, title: t('services.podcast.title'), desc: t('services.podcast.description') },
               ].map((service, index) => (
                 <Card
                   key={index}
@@ -91,7 +92,7 @@ export function BroadcasterSection() {
                       alt={image.caption}
                       width={300}
                       height={400}
-                      className="w-full h-80 object-cover translate-y-[5px] grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
+                      className="w-full h-80 object-cover object-[center_30%] grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
                     />
                   </div>
                   <p className="text-center text-sm text-muted-foreground mt-2 font-medium">{image.caption}</p>

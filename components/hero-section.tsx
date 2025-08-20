@@ -4,17 +4,19 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ChevronDown, Mail, Github } from "lucide-react"
-
-const subtitles = [
-  "Digital Communication Strategist",
-  "Social Media Expert",
-  "Content Creator",
-  "Digital Marketing Specialist",
-  "Communication Professional",
-]
+import { useTranslations } from 'next-intl'
 
 export function HeroSection() {
   const [currentSubtitle, setCurrentSubtitle] = useState(0)
+  const t = useTranslations('hero')
+  
+  const subtitles = [
+    t('subtitles.strategist'),
+    t('subtitles.socialMedia'),
+    t('subtitles.contentCreator'),
+    t('subtitles.marketing'),
+    t('subtitles.professional'),
+  ]
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -48,9 +50,9 @@ export function HeroSection() {
           <div className="space-y-6 text-center lg:text-left">
             <div className="space-y-4">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-inter leading-tight">
-                Hi, I'm{" "}
+                {t('greeting')}{" "}
                 <span className="bg-gradient-to-r from-[#0066CC] via-[#0066CC] to-[#FF6600] bg-clip-text text-transparent">
-                  Daniela Ayelén Argüello
+                  {t('name')}
                 </span>
               </h1>
 
@@ -62,9 +64,7 @@ export function HeroSection() {
             </div>
 
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-              Passionate about digital communication, social media strategy, and content creation. I specialize in
-              building digital communities, developing comprehensive marketing strategies, and creating engaging content
-              that drives results across multiple platforms.
+              {t('description')}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -74,7 +74,7 @@ export function HeroSection() {
                 onClick={() => scrollToSection("#contact")}
               >
                 <Mail className="mr-2 h-4 w-4" />
-                Get In Touch
+                {t('getInTouch')}
               </Button>
               <Button
                 variant="outline"
@@ -83,7 +83,7 @@ export function HeroSection() {
                 onClick={() => scrollToSection("#projects")}
               >
                 <Github className="mr-2 h-4 w-4" />
-                View My Work
+                {t('viewWork')}
               </Button>
             </div>
           </div>
@@ -97,7 +97,7 @@ export function HeroSection() {
                   alt="Daniela Ayelén Argüello - Professional Photo"
                   width={400}
                   height={400}
-                  className="w-full h-full object-cover object-center translate-y-[5px] grayscale group-hover:grayscale-0 transition-all duration-500"
+                  className="w-full h-full object-cover object-[center_25%] grayscale group-hover:grayscale-0 transition-all duration-500"
                   priority
                 />
               </div>

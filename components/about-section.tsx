@@ -4,27 +4,7 @@ import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { Award, Users, ThumbsUp } from "lucide-react"
-
-const stats = [
-  {
-    icon: Award,
-    number: 10,
-    suffix: "+",
-    label: "Years Experience",
-  },
-  {
-    icon: Users,
-    number: 20,
-    suffix: "+",
-    label: "Clients Served",
-  },
-  {
-    icon: ThumbsUp,
-    number: 100,
-    suffix: "%",
-    label: "Client Satisfaction",
-  },
-]
+import { useTranslations } from 'next-intl'
 
 function AnimatedCounter({
   number,
@@ -82,36 +62,49 @@ function AnimatedCounter({
 }
 
 export function AboutSection() {
+  const t = useTranslations('about')
+  
+  const stats = [
+    {
+      icon: Award,
+      number: 10,
+      suffix: "+",
+      label: t('stats.experience'),
+    },
+    {
+      icon: Users,
+      number: 20,
+      suffix: "+",
+      label: t('stats.clients'),
+    },
+    {
+      icon: ThumbsUp,
+      number: 100,
+      suffix: "%",
+      label: t('stats.satisfaction'),
+    },
+  ]
+  
   return (
     <section id="about" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold font-inter mb-4">About Me</h2>
+          <h2 className="text-3xl md:text-4xl font-bold font-inter mb-4">{t('title')}</h2>
           <div className="w-16 h-1 bg-gradient-to-r from-[#0066CC] to-[#FF6600] mx-auto mb-4" />
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Get to know me better</p>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{t('subtitle')}</p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-12 items-start">
           {/* Text Content */}
           <div className="lg:col-span-2 space-y-6">
             <h3 className="text-2xl md:text-3xl font-bold font-inter bg-gradient-to-r from-[#0066CC] to-[#FF6600] bg-clip-text text-transparent">
-              Strategic Communication for Impact.
+              {t('subtitle')}
             </h3>
 
             <div className="space-y-4 text-muted-foreground leading-relaxed">
-              <p>
-                I am a results-driven Digital Communications Specialist with 5+ years of experience in developing
-                cross-platform content strategies, optimizing user experiences (UX/UI), and implementing data-driven
-                marketing campaigns. My journey has allowed me to contribute to various sectors, including education,
-                creative agencies, and technology.
-              </p>
-
-              <p>
-                With a proven track record in team leadership, performance analysis, and creative direction, I am
-                passionate about leveraging digital technologies to deliver impactful brand communication solutions. I
-                help organizations establish strong digital presences and connect meaningfully with their audiences by
-                focusing on engagement and achieving business goals.
-              </p>
+              <p>{t('description1')}</p>
+              <p>{t('description2')}</p>
+              <p>{t('description3')}</p>
             </div>
 
             {/* Stats Grid */}
@@ -146,7 +139,7 @@ export function AboutSection() {
                   alt="Daniela Ayelén Argüello - About Photo"
                   width={320}
                   height={400}
-                  className="w-full h-full object-cover translate-y-[5px] grayscale group-hover:grayscale-0 transition-all duration-500"
+                  className="w-full h-full object-cover object-[center_25%] grayscale group-hover:grayscale-0 transition-all duration-500"
                 />
               </div>
 
