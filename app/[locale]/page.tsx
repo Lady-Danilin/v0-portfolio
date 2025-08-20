@@ -9,6 +9,11 @@ import { UXUISection } from "@/components/ux-ui-section"
 import { ProjectsSection } from "@/components/projects-section"
 import { ContactSection } from "@/components/contact-section"
 import { Footer } from "@/components/footer"
+import { routing } from '@/i18n/routing'
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({locale}));
+}
 
 export default function Home() {
   return (

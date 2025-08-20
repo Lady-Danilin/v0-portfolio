@@ -6,7 +6,11 @@
       "Bash(mv:*)",
       "Bash(pnpm dev:*)",
       "WebFetch(domain:next-intl.dev)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git push:*)",
+      "Bash(curl:*)",
+      "mcp__playwright__browser_navigate",
+      "Bash(rm:*)"
     ],
     "deny": [],
     "ask": []

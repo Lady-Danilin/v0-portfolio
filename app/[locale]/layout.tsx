@@ -22,6 +22,10 @@ const sourceSansPro = Source_Sans_Pro({
   display: "swap",
 })
 
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({locale}));
+}
+
 export async function generateMetadata({
   params
 }: {
