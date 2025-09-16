@@ -52,8 +52,8 @@ export function BroadcasterSection() {
               </CardContent>
             </Card>
 
-            {/* Voice Services */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {/* Voice Services - Hidden for now */}
+            {/* <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {[
                 { icon: Mic, title: "Commercial Voice", desc: "Professional advertising and promotional content" },
                 { icon: Radio, title: "Radio Production", desc: "Program hosting and radio content creation" },
@@ -72,7 +72,7 @@ export function BroadcasterSection() {
                   </CardContent>
                 </Card>
               ))}
-            </div>
+            </div> */}
           </div>
 
           {/* Gallery */}

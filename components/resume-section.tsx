@@ -71,7 +71,7 @@ export function ResumeSection() {
                 size="lg"
                 className="w-full bg-white text-[#FF6600] hover:bg-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               >
-                <a href="/assets/cv/CV_Daniela_Arguello_EN.txt" download>
+                <a href="/static/CV/CV DANIELA ARGUELLO 2025  INGLÉS.pdf" download="CV_Daniela_Arguello_2025_EN.pdf">
                   <Download className="mr-2 h-4 w-4" />
                   Download CV (English)
                 </a>
@@ -83,7 +83,7 @@ export function ResumeSection() {
                 variant="outline"
                 className="w-full border-white text-white hover:bg-white hover:text-[#0066CC] shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               >
-                <a href="/assets/cv/CV_Daniela_Arguello_ES.txt" download>
+                <a href="/static/CV/CV DANIELA ARGUELLO 2025.pdf" download="CV_Daniela_Arguello_2025_ES.pdf">
                   <Download className="mr-2 h-4 w-4" />
                   Descargar CV (Español)
                 </a>
@@ -91,7 +91,7 @@ export function ResumeSection() {
 
               <div className="flex items-center justify-center space-x-2 text-white/80 text-sm">
                 <Info className="h-4 w-4" />
-                <span>Updated recently</span>
+                <span>Updated 2025</span>
               </div>
             </div>
           </div>
