@@ -34,7 +34,7 @@ export function ContactSection() {
     )
 
     // Open email client
-    const mailtoLink = `mailto:arguellodanielaayelen@gmail.com?subject=${emailSubject}&body=${emailBody}`
+    const mailtoLink = `mailto:darguello@gmail.com?subject=${emailSubject}&body=${emailBody}`
     window.location.href = mailtoLink
 
     // Simulate form submission
@@ -74,8 +74,8 @@ export function ContactSection() {
                   {
                     icon: Mail,
                     label: "Email",
-                    value: "arguellodanielaayelen@gmail.com",
-                    href: "mailto:arguellodanielaayelen@gmail.com",
+                    value: "darguello@gmail.com",
+                    href: "mailto:darguello@gmail.com",
                   },
                   {
                     icon: Phone,
