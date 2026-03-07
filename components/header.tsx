@@ -6,15 +6,10 @@ import { ThemeToggle } from "./theme-toggle"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { useLang } from "@/lib/language-context"
 
-const navigation = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Experience", href: "#experience" },
-  { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
-]
+const navKeys = ["home", "about", "experience", "skills", "projects", "contact"] as const
+const navHrefs = ["#home", "#about", "#experience", "#skills", "#projects", "#contact"]
 
 const socialLinks = [
   {
@@ -48,8 +43,14 @@ function SocialIcon({ icon }: { icon: string }) {
 }
 
 export function Header() {
+  const { lang, setLang, t } = useLang()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+  const navigation = navKeys.map((key, i) => ({
+    name: t.nav[key],
+    href: navHrefs[i],
+  }))
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 60)
@@ -126,8 +127,16 @@ export function Header() {
               ))}
             </nav>
 
-            {/* Right side: theme toggle + hamburger */}
-            <div className="flex items-center gap-2">
+            {/* Right side: lang toggle + theme toggle + hamburger */}
+            <div className="flex items-center gap-1">
+              {/* Language toggle */}
+              <button
+                onClick={() => setLang(lang === "en" ? "es" : "en")}
+                className="h-8 px-2.5 rounded-lg text-xs font-bold tracking-wide border border-border/60 text-muted-foreground hover:text-foreground hover:border-[#0066CC]/50 hover:bg-[#0066CC]/5 transition-all duration-200"
+                aria-label="Toggle language"
+              >
+                {lang === "en" ? "ES" : "EN"}
+              </button>
               <ThemeToggle />
               <Button
                 variant="ghost"

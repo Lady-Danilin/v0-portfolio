@@ -11,90 +11,18 @@ import {
   ArrowRight, ExternalLink
 } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { useLang } from "@/lib/language-context"
 
-const tabs = [
-  {
-    id: "social",
-    label: "Comunicación Digital",
-    icon: Share2,
-    emoji: "📱",
-    tagline: "Estrategia, contenido y comunidades digitales",
-    description:
-      "Diseño estrategias de comunicación digital que conectan marcas con sus audiencias. Con experiencia en instituciones educativas y agencias creativas, traduzco objetivos en contenido que genera impacto real.",
-    highlights: [
-      { icon: Users, text: "Gestión de equipos creativos de hasta 8 personas" },
-      { icon: BarChart3, text: "Análisis de métricas y optimización continua de campañas" },
-      { icon: Megaphone, text: "Estrategia multicanal: Instagram, LinkedIn, Facebook, TikTok" },
-    ],
-    skills: ["Meta Business Suite", "Google Analytics", "Metricool", "Hootsuite", "Canva Pro", "ChatGPT"],
-    cta: { label: "Hablemos de tu estrategia", href: "#contact" },
-    accent: "#0066CC",
-  },
-  {
-    id: "voice",
-    label: "Locutora & Productora",
-    icon: Mic,
-    emoji: "🎙️",
-    tagline: "Tu voz, tu historia, digitalmente realizada",
-    description:
-      "Con experiencia en producción radial y locución profesional, adapto mi voz para transmitir el tono y mensaje exacto que tu marca necesita. Desde publicidad hasta narración, cada palabra tiene intención.",
-    highlights: [
-      { icon: Radio, text: "Productora en Radio Mitre — programa \"Mitre y el Campo\"" },
-      { icon: Mic, text: "Locución comercial, narrativa y presentación institucional" },
-      { icon: Volume2, text: "Producción de contenido de audio para plataformas digitales" },
-    ],
-    skills: ["Locución comercial", "Producción radial", "Narración", "Adobe Audition", "Podcast", "Voice-over"],
-    cta: { label: "Escuchar demo", href: "#broadcaster" },
-    accent: "#FF6600",
-  },
-  {
-    id: "ux",
-    label: "UX/UI & Diseño",
-    icon: Palette,
-    emoji: "🎨",
-    tagline: "Diseño centrado en el usuario, con propósito",
-    description:
-      "Combino pensamiento estratégico con ejecución creativa para crear experiencias digitales que no solo se ven bien, sino que funcionan de manera intuitiva. Cada decisión de diseño tiene un por qué.",
-    highlights: [
-      { icon: MousePointer, text: "Caso real: Secretaría de Extensión FCEFyN-UNC" },
-      { icon: CheckCircle, text: "Test de usabilidad y evaluación heurística aplicada" },
-      { icon: Palette, text: "Figma, Adobe XD, wireframing y prototipos" },
-    ],
-    skills: ["Figma", "Adobe XD", "Wagtail CMS", "User Testing", "Wireframing", "Heurísticas Nielsen"],
-    cta: { label: "Ver caso de estudio", href: "#ux-ui-designer" },
-    accent: "#7C3AED",
-    caseStudy: {
-      title: "Secretaría de Extensión — FCEFyN UNC",
-      url: "https://fcefyn.unc.edu.ar/extension/",
-      role: "Responsable de comunicación digital · 2024–presente",
-      tests: [
-        {
-          id: "TC-01",
-          name: "Navegación a convocatorias",
-          scenario: "Un visitante nuevo busca inscribirse a un programa de extensión en menos de 3 clics.",
-          finding: "✅ Flujo claro desde inicio → Extensión → Programas → Formulario.",
-        },
-        {
-          id: "TC-02",
-          name: "Legibilidad en mobile",
-          scenario: "Usuario en celular intenta leer un artículo de noticias reciente.",
-          finding: "⚠️ Tipografía adecuada, pero CTAs secundarios requieren scroll excesivo.",
-        },
-        {
-          id: "TC-03",
-          name: "Consistencia visual entre secciones",
-          scenario: "¿Mantiene el sitio jerarquía visual coherente en todas sus secciones?",
-          finding: "⚠️ Paleta consistente, pero variación en uso de headers entre subsecciones.",
-        },
-        {
-          id: "TC-04",
-          name: "Accesibilidad de contacto",
-          scenario: "¿Puede un usuario encontrar cómo contactar a la secretaría sin conocer el sitio?",
-          finding: "✅ Footer con datos visibles. Mejora sugerida: CTA de contacto en hero.",
-        },
-      ],
-    },
-  },
+const tabIcons = [
+  { id: "social", icon: Share2 },
+  { id: "voice", icon: Mic },
+  { id: "ux",    icon: Palette },
+]
+
+const highlightIcons = [
+  [Users, BarChart3, Megaphone],
+  [Radio, Mic, Volume2],
+  [MousePointer, CheckCircle, Palette],
 ]
 
 function scrollTo(href: string) {
@@ -103,75 +31,88 @@ function scrollTo(href: string) {
 }
 
 export function ProfileTabsSection() {
-  const [active, setActive] = useState("social")
-  const tab = tabs.find((t) => t.id === active)!
+  const { t } = useLang()
+  const tabs = t.profileTabs.tabs
+  const [activeIdx, setActiveIdx] = useState(0)
+  const tab = tabs[activeIdx]
+  const HLIcons = highlightIcons[activeIdx]
+  const TabIcon = tabIcons[activeIdx].icon
 
   return (
     <section className="py-20 bg-gradient-to-br from-background via-muted/10 to-background">
       <div className="container mx-auto px-4">
 
         {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold font-inter mb-4">¿Qué buscás?</h2>
+        <div className="text-center mb-10">
+          <h2 className="text-3xl md:text-4xl font-bold font-inter mb-4">
+            {t.profileTabs.heading}
+          </h2>
           <div className="w-16 h-1 bg-gradient-to-r from-[#0066CC] to-[#FF6600] mx-auto mb-4" />
-          <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-            Tres perfiles, una misma pasión por la comunicación estratégica.
+          <p className="text-base text-muted-foreground max-w-lg mx-auto leading-relaxed">
+            {t.profileTabs.subheading}
           </p>
         </div>
 
-        {/* Tab buttons */}
-        <div className="flex flex-col sm:flex-row gap-3 justify-center mb-10">
-          {tabs.map((t) => {
-            const Icon = t.icon
-            const isActive = t.id === active
-            return (
-              <button
-                key={t.id}
-                onClick={() => setActive(t.id)}
-                className={cn(
-                  "flex items-center gap-2 px-5 py-3 rounded-2xl font-semibold text-sm transition-all duration-300 border-2",
-                  isActive
-                    ? "bg-gradient-to-r from-[#0066CC] to-[#FF6600] text-white border-transparent shadow-lg scale-105"
-                    : "border-border text-muted-foreground hover:text-foreground hover:border-[#0066CC]/40 hover:bg-muted/50",
-                )}
-              >
-                <Icon className="h-4 w-4 flex-shrink-0" />
-                {t.label}
-              </button>
-            )
-          })}
+        {/* Segmented tab control */}
+        <div className="flex justify-center mb-10">
+          <div className="inline-flex bg-muted/60 rounded-2xl p-1.5 gap-1 border border-border/50">
+            {tabs.map((tab, i) => {
+              const Icon = tabIcons[i].icon
+              const isActive = i === activeIdx
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveIdx(i)}
+                  className={cn(
+                    "flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all duration-250 whitespace-nowrap",
+                    isActive
+                      ? "bg-gradient-to-r from-[#0066CC] to-[#FF6600] text-white shadow-md"
+                      : "text-muted-foreground hover:text-foreground hover:bg-background/80",
+                  )}
+                >
+                  <Icon className="h-3.5 w-3.5 flex-shrink-0" />
+                  <span className="hidden sm:inline">{tab.label}</span>
+                  <span className="sm:hidden">{tab.emoji}</span>
+                </button>
+              )
+            })}
+          </div>
         </div>
 
-        {/* Tab content */}
-        <div className="max-w-4xl mx-auto">
-          <Card className="border-none shadow-xl overflow-hidden">
-            {/* Top accent bar */}
-            <div className="h-1.5 bg-gradient-to-r from-[#0066CC] to-[#FF6600]" />
+        {/* Content card */}
+        <div className="max-w-3xl mx-auto">
+          <Card className="border shadow-lg overflow-hidden">
+            <div className="h-1 bg-gradient-to-r from-[#0066CC] to-[#FF6600]" />
 
-            <CardContent className="p-8 md:p-10 space-y-8">
+            <CardContent className="p-7 md:p-9 space-y-7">
 
-              {/* Title + description */}
-              <div className="space-y-3">
-                <div className="flex items-center gap-3">
-                  <span className="text-3xl">{tab.emoji}</span>
-                  <div>
-                    <h3 className="text-2xl font-bold font-inter">{tab.label}</h3>
-                    <p className="text-sm text-muted-foreground">{tab.tagline}</p>
-                  </div>
+              {/* Title */}
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#0066CC]/10 to-[#FF6600]/10 flex items-center justify-center flex-shrink-0 border border-[#0066CC]/15">
+                  <TabIcon className="h-5 w-5 text-[#0066CC]" />
                 </div>
-                <p className="text-muted-foreground leading-relaxed text-base pt-1">{tab.description}</p>
+                <div>
+                  <h3 className="text-xl font-bold font-inter">{tab.label}</h3>
+                  <p className="text-sm text-muted-foreground mt-0.5">{tab.tagline}</p>
+                </div>
               </div>
 
+              {/* Description */}
+              <p className="text-muted-foreground leading-relaxed">{tab.description}</p>
+
               {/* Highlights */}
-              <div className="space-y-3">
-                {tab.highlights.map((h, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-[#0066CC]/10 to-[#FF6600]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <h.icon className="h-4 w-4 text-[#0066CC]" />
+              <div className="space-y-2.5">
+                {tab.highlights.map((h, i) => {
+                  const Icon = HLIcons[i]
+                  return (
+                    <div key={i} className="flex items-start gap-3">
+                      <div className="w-7 h-7 rounded-lg bg-gradient-to-r from-[#0066CC]/10 to-[#FF6600]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Icon className="h-3.5 w-3.5 text-[#0066CC]" />
+                      </div>
+                      <p className="text-sm text-foreground/80 leading-relaxed pt-1">{h}</p>
                     </div>
-                    <p className="text-sm text-foreground/80 leading-relaxed pt-1">{h.text}</p>
-                  </div>
-                ))}
+                  )
+                })}
               </div>
 
               {/* Skills */}
@@ -187,35 +128,34 @@ export function ProfileTabsSection() {
                 ))}
               </div>
 
-              {/* Case study (UX tab only) */}
-              {tab.caseStudy && (
+              {/* Case study (UX tab) */}
+              {"caseStudy" in tab && tab.caseStudy && (
                 <div className="rounded-2xl border border-border/60 overflow-hidden bg-muted/20">
-                  <div className="px-6 py-4 border-b border-border/60 flex items-center justify-between">
+                  <div className="px-5 py-3.5 border-b border-border/60 flex items-center justify-between gap-3">
                     <div>
                       <p className="font-semibold text-sm">{tab.caseStudy.title}</p>
                       <p className="text-xs text-muted-foreground">{tab.caseStudy.role}</p>
                     </div>
                     <a
-                      href={tab.caseStudy.url}
+                      href="https://fcefyn.unc.edu.ar/extension/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-xs text-[#0066CC] flex items-center gap-1 hover:underline"
+                      className="text-xs text-[#0066CC] flex items-center gap-1 hover:underline flex-shrink-0"
                     >
                       Ver sitio <ExternalLink className="h-3 w-3" />
                     </a>
                   </div>
-
                   <div className="divide-y divide-border/40">
                     {tab.caseStudy.tests.map((test) => (
-                      <div key={test.id} className="px-6 py-4 space-y-1">
+                      <div key={test.id} className="px-5 py-3.5 space-y-1">
                         <div className="flex items-center gap-2">
                           <Badge variant="outline" className="text-[10px] font-mono px-2 py-0.5 flex-shrink-0">
                             {test.id}
                           </Badge>
                           <p className="text-sm font-semibold">{test.name}</p>
                         </div>
-                        <p className="text-xs text-muted-foreground pl-9">{test.scenario}</p>
-                        <p className="text-xs pl-9 font-medium">{test.finding}</p>
+                        <p className="text-xs text-muted-foreground pl-10">{test.scenario}</p>
+                        <p className="text-xs pl-10 font-medium">{test.finding}</p>
                       </div>
                     ))}
                   </div>
@@ -223,16 +163,14 @@ export function ProfileTabsSection() {
               )}
 
               {/* CTA */}
-              <div className="pt-2">
-                <Button
-                  size="lg"
-                  className="bg-gradient-to-r from-[#0066CC] to-[#FF6600] text-white hover:shadow-[0_6px_25px_rgba(0,102,204,0.4)] hover:-translate-y-0.5 transition-all duration-300 gap-2"
-                  onClick={() => scrollTo(tab.cta.href)}
-                >
-                  {tab.cta.label}
-                  <ArrowRight className="h-4 w-4" />
-                </Button>
-              </div>
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-[#0066CC] to-[#FF6600] text-white hover:shadow-[0_6px_25px_rgba(0,102,204,0.4)] hover:-translate-y-0.5 transition-all duration-300 gap-2 w-full sm:w-auto"
+                onClick={() => scrollTo(tab.cta.href)}
+              >
+                {tab.cta.label}
+                <ArrowRight className="h-4 w-4" />
+              </Button>
 
             </CardContent>
           </Card>
