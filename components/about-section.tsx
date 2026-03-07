@@ -123,7 +123,8 @@ export function AboutSection() {
               {stats.map((stat, index) => (
                 <Card
                   key={index}
-                  className="text-center group hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                  className={`text-center group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 section-hidden ${inView ? "section-visible" : ""}`}
+                  style={{ transitionDelay: `${0.3 + index * 0.15}s` }}
                 >
                   <CardContent className="p-6">
                     <div className="flex flex-col items-center space-y-3">

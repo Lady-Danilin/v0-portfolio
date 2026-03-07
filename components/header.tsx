@@ -132,7 +132,7 @@ export function Header() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="md:hidden rounded-xl hover:bg-muted/80 transition-colors"
+                className="md:hidden rounded-xl hover:bg-muted/80 transition-colors min-w-[48px] min-h-[48px]"
                 onClick={() => setIsMobileMenuOpen(true)}
                 aria-label="Open menu"
               >
@@ -184,8 +184,9 @@ export function Header() {
               key={item.name}
               onClick={() => handleNavClick(item.href)}
               className={cn(
-                "w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left text-sm font-medium transition-all duration-200",
+                "w-full flex items-center gap-3 px-4 py-4 rounded-xl text-left text-sm font-medium transition-all duration-200",
                 "text-muted-foreground hover:text-foreground hover:bg-gradient-to-r hover:from-[#0066CC]/8 hover:to-[#FF6600]/8",
+                "active:scale-[0.98] active:opacity-80",
               )}
               style={{ animationDelay: `${index * 40}ms` }}
             >

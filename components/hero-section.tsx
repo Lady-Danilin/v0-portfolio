@@ -15,11 +15,16 @@ const subtitles = [
 
 export function HeroSection() {
   const [currentSubtitle, setCurrentSubtitle] = useState(0)
+  const [subtitleVisible, setSubtitleVisible] = useState(true)
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSubtitle((prev) => (prev + 1) % subtitles.length)
-    }, 3000)
+      setSubtitleVisible(false)
+      setTimeout(() => {
+        setCurrentSubtitle((prev) => (prev + 1) % subtitles.length)
+        setSubtitleVisible(true)
+      }, 300)
+    }, 3200)
 
     return () => clearInterval(interval)
   }, [])
@@ -55,7 +60,10 @@ export function HeroSection() {
               </h1>
 
               <div className="h-8 flex items-center justify-center lg:justify-start">
-                <p className="text-xl md:text-2xl font-medium text-[#0066CC] transition-opacity duration-500">
+                <p
+                  className="text-xl md:text-2xl font-medium text-[#0066CC] transition-all duration-300"
+                  style={{ opacity: subtitleVisible ? 1 : 0, transform: subtitleVisible ? "translateY(0)" : "translateY(6px)" }}
+                >
                   {subtitles[currentSubtitle]}
                 </p>
               </div>

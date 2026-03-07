@@ -22,16 +22,27 @@ export function AudioPlayer({ src, title = "Audio" }: AudioPlayerProps) {
     if (!audio) return
 
     const onTimeUpdate = () => setCurrentTime(audio.currentTime)
-    const onLoadedMetadata = () => setDuration(audio.duration)
+    const onDuration = () => {
+      if (isFinite(audio.duration)) setDuration(audio.duration)
+    }
     const onEnded = () => setIsPlaying(false)
 
     audio.addEventListener("timeupdate", onTimeUpdate)
-    audio.addEventListener("loadedmetadata", onLoadedMetadata)
+    audio.addEventListener("loadedmetadata", onDuration)
+    audio.addEventListener("durationchange", onDuration)
+    audio.addEventListener("canplay", onDuration)
     audio.addEventListener("ended", onEnded)
+
+    // If already loaded (cached)
+    if (audio.readyState >= 1 && isFinite(audio.duration)) {
+      setDuration(audio.duration)
+    }
 
     return () => {
       audio.removeEventListener("timeupdate", onTimeUpdate)
-      audio.removeEventListener("loadedmetadata", onLoadedMetadata)
+      audio.removeEventListener("loadedmetadata", onDuration)
+      audio.removeEventListener("durationchange", onDuration)
+      audio.removeEventListener("canplay", onDuration)
       audio.removeEventListener("ended", onEnded)
     }
   }, [])
@@ -74,7 +85,7 @@ export function AudioPlayer({ src, title = "Audio" }: AudioPlayerProps) {
 
   return (
     <div className="rounded-2xl overflow-hidden bg-gradient-to-br from-[#0066CC]/8 to-[#FF6600]/8 border border-[#0066CC]/15 p-5">
-      <audio ref={audioRef} src={src} preload="metadata" />
+      <audio ref={audioRef} src={src} preload="auto" />
 
       {/* Waveform decoration */}
       <div className="flex items-end gap-[2px] h-8 mb-4 opacity-40">
@@ -103,7 +114,7 @@ export function AudioPlayer({ src, title = "Audio" }: AudioPlayerProps) {
         {/* Play / Pause button */}
         <button
           onClick={togglePlay}
-          className="w-12 h-12 flex-shrink-0 rounded-full bg-gradient-to-br from-[#0066CC] to-[#FF6600] flex items-center justify-center shadow-lg hover:shadow-[0_4px_20px_rgba(0,102,204,0.4)] hover:scale-105 transition-all duration-200 active:scale-95"
+          className="w-14 h-14 flex-shrink-0 rounded-full bg-gradient-to-br from-[#0066CC] to-[#FF6600] flex items-center justify-center shadow-lg hover:shadow-[0_4px_20px_rgba(0,102,204,0.4)] hover:scale-105 transition-all duration-200 active:scale-95"
           aria-label={isPlaying ? "Pause" : "Play"}
         >
           {isPlaying ? (
@@ -118,7 +129,7 @@ export function AudioPlayer({ src, title = "Audio" }: AudioPlayerProps) {
           {/* Progress bar */}
           <div
             ref={progressRef}
-            className="h-2 bg-muted rounded-full cursor-pointer relative overflow-hidden group"
+            className="h-3 bg-muted rounded-full cursor-pointer relative overflow-hidden group"
             onClick={seek}
           >
             <div
