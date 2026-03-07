@@ -151,10 +151,10 @@ export function AudioPlayer({ src, title = "Audio" }: AudioPlayerProps) {
         {/* Mute button */}
         <button
           onClick={toggleMute}
-          className="w-9 h-9 flex-shrink-0 rounded-full flex items-center justify-center text-muted-foreground hover:text-[#0066CC] hover:bg-[#0066CC]/10 transition-all duration-200"
+          className="w-11 h-11 flex-shrink-0 rounded-full flex items-center justify-center text-muted-foreground hover:text-[#0066CC] hover:bg-[#0066CC]/10 transition-all duration-200 active:scale-95"
           aria-label={isMuted ? "Unmute" : "Mute"}
         >
-          {isMuted ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}
+          {isMuted ? <VolumeX className="h-5 w-5" /> : <Volume2 className="h-5 w-5" />}
         </button>
       </div>
     </div>

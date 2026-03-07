@@ -184,15 +184,16 @@ export function Header() {
               key={item.name}
               onClick={() => handleNavClick(item.href)}
               className={cn(
-                "w-full flex items-center gap-3 px-4 py-4 rounded-xl text-left text-sm font-medium transition-all duration-200",
-                "text-muted-foreground hover:text-foreground hover:bg-gradient-to-r hover:from-[#0066CC]/8 hover:to-[#FF6600]/8",
+                "w-full flex items-center px-4 py-4 rounded-xl text-left text-sm font-medium transition-all duration-200",
+                "text-muted-foreground hover:text-foreground",
+                "relative overflow-hidden group/navitem",
                 "active:scale-[0.98] active:opacity-80",
               )}
               style={{ animationDelay: `${index * 40}ms` }}
             >
-              {/* Gradient dot */}
-              <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-[#0066CC] to-[#FF6600] flex-shrink-0" />
-              {item.name}
+              {/* Left border accent on hover */}
+              <span className="absolute left-0 top-2 bottom-2 w-0.5 rounded-full bg-gradient-to-b from-[#0066CC] to-[#FF6600] opacity-0 group-hover/navitem:opacity-100 transition-opacity duration-200" />
+              <span className="pl-3">{item.name}</span>
             </button>
           ))}
         </nav>
