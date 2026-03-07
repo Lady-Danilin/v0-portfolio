@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { Award, Users, ThumbsUp } from "lucide-react"
+import { useInView } from "@/lib/use-in-view"
 
 const stats = [
   {
@@ -29,7 +30,7 @@ const stats = [
 function AnimatedCounter({
   number,
   suffix = "",
-  duration = 2000,
+  duration = 1800,
 }: { number: number; suffix?: string; duration?: number }) {
   const [count, setCount] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
@@ -82,10 +83,13 @@ function AnimatedCounter({
 }
 
 export function AboutSection() {
+  const { ref: sectionRef, inView } = useInView()
+  const { ref: imageRef, inView: imageInView } = useInView({ threshold: 0.2 })
+
   return (
-    <section id="about" className="py-20 bg-background">
+    <section id="about" className="py-20 bg-background" ref={sectionRef as React.RefObject<HTMLElement>}>
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 section-hidden ${inView ? "section-visible" : ""}`}>
           <h2 className="text-3xl md:text-4xl font-bold font-inter mb-4">About Me</h2>
           <div className="w-16 h-1 bg-gradient-to-r from-[#0066CC] to-[#FF6600] mx-auto mb-4" />
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Get to know me better</p>
@@ -93,7 +97,7 @@ export function AboutSection() {
 
         <div className="grid lg:grid-cols-3 gap-12 items-start">
           {/* Text Content */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className={`lg:col-span-2 space-y-6 section-hidden-left ${inView ? "section-visible-x" : ""} delay-200`}>
             <h3 className="text-2xl md:text-3xl font-bold font-inter bg-gradient-to-r from-[#0066CC] to-[#FF6600] bg-clip-text text-transparent">
               Strategic Communication for Impact.
             </h3>
@@ -138,15 +142,15 @@ export function AboutSection() {
           </div>
 
           {/* Profile Image */}
-          <div className="flex justify-center lg:justify-end">
+          <div className={`flex justify-center lg:justify-end section-hidden-right ${inView ? "section-visible-x" : ""} delay-300`} ref={imageRef as React.RefObject<HTMLDivElement>}>
             <div className="relative group">
-              <div className="w-80 h-96 rounded-2xl overflow-hidden shadow-xl border-4 border-white dark:border-gray-800 transition-transform duration-300 group-hover:scale-105">
+              <div className="w-80 h-96 rounded-2xl overflow-hidden shadow-xl border-4 border-white dark:border-gray-800 transition-all duration-500 group-hover:scale-105 group-hover:shadow-[0_20px_60px_rgba(255,102,0,0.2)]">
                 <Image
                   src="/static/Images/retrato-la-cueva-arg-389.jpg"
                   alt="Daniela Ayelén Argüello - About Photo"
                   width={320}
                   height={400}
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                  className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                 />
               </div>
 

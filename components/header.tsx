@@ -95,7 +95,7 @@ export function Header() {
                 className="text-sm font-medium text-muted-foreground hover:text-[#0066CC] transition-colors relative group"
               >
                 {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#0066CC] to-[#FF6600] transition-all group-hover:w-full" />
+                <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-[#0066CC] to-[#FF6600] transition-all duration-300 group-hover:w-full" />
               </button>
             ))}
           </nav>

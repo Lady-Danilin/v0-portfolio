@@ -2,6 +2,7 @@
 
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { useInView as useInViewHook } from "@/lib/use-in-view"
 import {
   BarChart3,
   TrendingUp,
@@ -126,10 +127,12 @@ const getLevelBadgeColor = (level: string) => {
 }
 
 export function SkillsSection() {
+  const { ref: sectionRef, inView } = useInViewHook()
+
   return (
-    <section id="skills" className="py-20 bg-gradient-to-br from-background via-muted/20 to-background">
+    <section id="skills" className="py-20 bg-gradient-to-br from-background via-muted/20 to-background" ref={sectionRef}>
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 section-hidden ${inView ? "section-visible" : ""}`}>
           <h2 className="text-3xl md:text-4xl font-bold font-inter mb-4">Skills & Expertise</h2>
           <div className="w-16 h-1 bg-gradient-to-r from-[#0066CC] to-[#FF6600] mx-auto mb-4" />
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -143,9 +146,10 @@ export function SkillsSection() {
             return (
               <Card
                 key={index}
-                className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-muted overflow-hidden group"
+                className={`hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-muted overflow-hidden group section-hidden ${inView ? "section-visible" : ""}`}
+                style={{ transitionDelay: `${0.1 + index * 0.1}s` }}
               >
-                <div className="h-2 bg-gradient-to-r from-[#0066CC] to-[#FF6600] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="h-1.5 bg-gradient-to-r from-[#0066CC] to-[#FF6600] opacity-30 group-hover:opacity-100 group-hover:h-2 transition-all duration-300" />
 
                 <CardContent className="p-6">
                   <div className="flex items-center justify-center mb-6">

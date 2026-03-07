@@ -46,7 +46,7 @@ export function HeroSection() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <div className="space-y-6 text-center lg:text-left">
-            <div className="space-y-4">
+            <div className="space-y-4 hero-animate-1">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-inter leading-tight">
                 Hi, I'm{" "}
                 <span className="bg-gradient-to-r from-[#0066CC] via-[#0066CC] to-[#FF6600] bg-clip-text text-transparent">
@@ -55,22 +55,22 @@ export function HeroSection() {
               </h1>
 
               <div className="h-8 flex items-center justify-center lg:justify-start">
-                <p className="text-xl md:text-2xl font-medium text-[#0066CC] transition-opacity duration-300">
+                <p className="text-xl md:text-2xl font-medium text-[#0066CC] transition-opacity duration-500">
                   {subtitles[currentSubtitle]}
                 </p>
               </div>
             </div>
 
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0 leading-relaxed hero-animate-2">
               Passionate about digital communication, social media strategy, and content creation. I specialize in
               building digital communities, developing comprehensive marketing strategies, and creating engaging content
               that drives results across multiple platforms.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start hero-animate-3">
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-[#FF6600] to-[#FF8533] hover:from-[#FF8533] hover:to-[#FF6600] text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                className="bg-gradient-to-r from-[#FF6600] to-[#FF8533] hover:from-[#e55c00] hover:to-[#FF6600] text-white shadow-lg hover:shadow-[0_6px_25px_rgba(255,102,0,0.55),0_0_0_4px_rgba(255,102,0,0.12)] transition-all duration-300 hover:-translate-y-1"
                 onClick={() => scrollToSection("#contact")}
               >
                 <Mail className="mr-2 h-4 w-4" />
@@ -79,7 +79,7 @@ export function HeroSection() {
               <Button
                 variant="outline"
                 size="lg"
-                className="border-[#0066CC] text-[#0066CC] hover:bg-[#0066CC] hover:text-white transition-all duration-300 hover:-translate-y-1"
+                className="border-2 border-[#0066CC] text-[#0066CC] hover:bg-[#0066CC] hover:text-white hover:shadow-[0_6px_25px_rgba(0,102,204,0.5),0_0_0_4px_rgba(0,102,204,0.1)] transition-all duration-300 hover:-translate-y-1"
                 onClick={() => scrollToSection("#projects")}
               >
                 <Github className="mr-2 h-4 w-4" />
@@ -89,15 +89,15 @@ export function HeroSection() {
           </div>
 
           {/* Profile Image */}
-          <div className="flex justify-center lg:justify-end">
+          <div className="flex justify-center lg:justify-end hero-image-animate">
             <div className="relative group">
-              <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-white shadow-2xl transition-transform duration-300 group-hover:scale-105">
+              <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-white shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:shadow-[0_20px_60px_rgba(0,102,204,0.25)]">
                 <Image
                   src="/static/Images/retrato-la-cueva-arg-374.jpg"
                   alt="Daniela Ayelén Argüello - Professional Photo"
                   width={400}
                   height={400}
-                  className="w-full h-full object-cover object-center grayscale group-hover:grayscale-0 transition-all duration-500"
+                  className="w-full h-full object-cover object-center transition-all duration-500"
                   priority
                 />
               </div>

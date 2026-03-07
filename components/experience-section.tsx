@@ -2,6 +2,7 @@
 
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { useInView } from "@/lib/use-in-view"
 
 const experiences = [
   {
@@ -60,13 +61,16 @@ const experiences = [
 ]
 
 export function ExperienceSection() {
+  const { ref: sectionRef, inView } = useInView()
+
   return (
     <section
       id="experience"
       className="py-20 bg-gradient-to-br from-[#F8F9FA] to-white dark:from-gray-900 dark:to-gray-800"
+      ref={sectionRef as React.RefObject<HTMLElement>}
     >
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 section-hidden ${inView ? "section-visible" : ""}`}>
           <h2 className="text-3xl md:text-4xl font-bold font-inter mb-4">Experience</h2>
           <div className="w-16 h-1 bg-gradient-to-r from-[#0066CC] to-[#FF6600] mx-auto mb-4" />
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">My professional journey</p>
@@ -79,7 +83,7 @@ export function ExperienceSection() {
 
             <div className="space-y-8">
               {experiences.map((exp, index) => (
-                <div key={index} className="relative group">
+                <div key={index} className={`relative group section-hidden ${inView ? "section-visible" : ""}`} style={{ transitionDelay: `${0.1 + index * 0.12}s`, transform: inView ? undefined : 'translateY(40px) scale(0.98)' }}>
                   {/* Timeline Dot */}
                   <div className="absolute left-6 w-4 h-4 bg-gradient-to-r from-[#0066CC] to-[#FF6600] rounded-full border-4 border-background shadow-lg hidden md:block group-hover:scale-125 transition-transform" />
 
