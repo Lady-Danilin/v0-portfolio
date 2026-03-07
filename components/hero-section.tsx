@@ -47,7 +47,7 @@ export function HeroSection() {
         <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-[#FF6600]/5 to-transparent rounded-full animate-pulse delay-1000" />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-10 pt-20 lg:pt-0">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <div className="space-y-6 text-center lg:text-left">
@@ -111,8 +111,8 @@ export function HeroSection() {
               </div>
 
               {/* Floating Elements */}
-              <div className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-r from-[#0066CC] to-[#FF6600] rounded-full animate-bounce delay-300" />
-              <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-gradient-to-r from-[#FF6600] to-[#0066CC] rounded-full animate-bounce delay-700" />
+              <div className="hidden lg:block absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-r from-[#0066CC] to-[#FF6600] rounded-full animate-bounce delay-300" />
+              <div className="hidden lg:block absolute -bottom-4 -left-4 w-6 h-6 bg-gradient-to-r from-[#FF6600] to-[#0066CC] rounded-full animate-bounce delay-700" />
             </div>
           </div>
         </div>

@@ -184,8 +184,8 @@ export function Header() {
               key={item.name}
               onClick={() => handleNavClick(item.href)}
               className={cn(
-                "w-full flex items-center px-4 py-4 rounded-xl text-left text-sm font-medium transition-all duration-200",
-                "text-muted-foreground hover:text-foreground",
+                "w-full flex items-center px-4 py-4 rounded-xl text-left font-semibold transition-all duration-200",
+                "text-foreground/70 hover:text-foreground text-base",
                 "relative overflow-hidden group/navitem",
                 "active:scale-[0.98] active:opacity-80",
               )}
