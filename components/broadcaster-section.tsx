@@ -3,6 +3,7 @@
 import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { Mic, Radio, Volume2 } from "lucide-react"
+import { AudioPlayer } from "@/components/audio-player"
 
 export function BroadcasterSection() {
   return (
@@ -32,19 +33,19 @@ export function BroadcasterSection() {
               tone and message for your brand.
             </p>
 
-            <Card className="bg-muted/50">
-              <CardContent className="p-6">
-                <div className="flex items-center space-x-3 mb-4">
-                  <div className="w-10 h-10 bg-gradient-to-r from-[#0066CC] to-[#FF6600] rounded-full flex items-center justify-center">
+            <Card className="bg-muted/30 border-none shadow-none">
+              <CardContent className="p-0 space-y-3">
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 bg-gradient-to-r from-[#0066CC] to-[#FF6600] rounded-full flex items-center justify-center shadow-md">
                     <Volume2 className="h-5 w-5 text-white" />
                   </div>
-                  <h4 className="font-semibold">Main Presentation Audio</h4>
+                  <div>
+                    <h4 className="font-semibold leading-tight">Main Presentation Audio</h4>
+                    <p className="text-xs text-muted-foreground">Demo de locución</p>
+                  </div>
                 </div>
 
-                <audio controls className="w-full mb-4" preload="metadata">
-                  <source src="/audios/demo-locucion.mp3" type="audio/mpeg" />
-                  Your browser does not support the audio element.
-                </audio>
+                <AudioPlayer src="/audios/demo-locucion.mp3" title="Demo de locución" />
 
                 <p className="text-sm text-muted-foreground italic">
                   Further audio examples coming soon (e.g., advertising, narrative, voice acting styles).
@@ -85,16 +86,21 @@ export function BroadcasterSection() {
                 { src: "/static/Images/retrato-la-cueva-arg-383.jpg", caption: "Studio Session" },
               ].map((image, index) => (
                 <div key={index} className="group">
-                  <div className="relative overflow-hidden rounded-lg shadow-lg">
+                  <div className="relative overflow-hidden rounded-2xl shadow-lg aspect-[3/4]">
                     <Image
                       src={image.src || "/placeholder.svg"}
                       alt={image.caption}
-                      width={300}
-                      height={400}
-                      className="w-full h-80 object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
+                      fill
+                      className="object-cover object-top group-hover:scale-105 transition-all duration-500"
+                      sizes="(max-width: 640px) 100vw, 300px"
                     />
+                    {/* Gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+                    <p className="absolute bottom-3 left-0 right-0 text-center text-sm text-white font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-500 drop-shadow">
+                      {image.caption}
+                    </p>
                   </div>
-                  <p className="text-center text-sm text-muted-foreground mt-2 font-medium">{image.caption}</p>
+                  <p className="text-center text-sm text-muted-foreground mt-2 font-medium group-hover:text-[#0066CC] transition-colors">{image.caption}</p>
                 </div>
               ))}
             </div>
