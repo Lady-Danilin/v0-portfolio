@@ -104,7 +104,7 @@ export function Header() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-8 h-8 rounded-full bg-gradient-to-r from-[#0066CC] to-[#FF6600] flex items-center justify-center text-white hover:scale-110 hover:shadow-[0_4px_12px_rgba(0,102,204,0.35)] transition-all duration-200"
+                    className="w-8 h-8 rounded-full bg-gradient-to-r from-[#0066CC] to-[#FF6600] flex items-center justify-center text-white hover:scale-125 hover:shadow-[0_6px_16px_rgba(0,102,204,0.45)] hover:brightness-110 transition-all duration-200"
                     aria-label={link.name}
                   >
                     <SocialIcon icon={link.icon} />

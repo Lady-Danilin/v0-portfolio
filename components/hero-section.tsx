@@ -85,7 +85,7 @@ export function HeroSection() {
                 </span>
               </h1>
 
-              <div className="h-8 flex items-center justify-center lg:justify-start overflow-hidden">
+              <div className="h-10 flex items-center justify-center lg:justify-start overflow-hidden">
                 <p
                   className="text-xl md:text-2xl font-medium text-[#0066CC]"
                   style={{
@@ -115,7 +115,7 @@ export function HeroSection() {
               <Button
                 variant="outline"
                 size="lg"
-                className="border-2 border-[#0066CC] text-[#0066CC] hover:bg-[#0066CC] hover:text-white hover:shadow-[0_10px_28px_rgba(0,102,204,0.5),0_0_0_4px_rgba(0,102,204,0.1)] transition-all duration-300 hover:-translate-y-1"
+                className="border-2 border-[#0066CC] text-[#0066CC] hover:bg-[#0066CC] hover:text-white hover:shadow-[0_10px_28px_rgba(0,102,204,0.5),0_0_0_4px_rgba(0,102,204,0.1)] hover:brightness-105 transition-all duration-300 hover:-translate-y-1"
                 onClick={() => scrollToSection("#projects")}
               >
                 <Github className="mr-2 h-4 w-4" />
@@ -151,7 +151,7 @@ export function HeroSection() {
         onClick={() => scrollToSection("#about")}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer group flex flex-col items-center gap-1 opacity-75 hover:opacity-100 transition-opacity duration-200"
       >
-        <span className="text-[10px] font-medium text-[#0066CC]/70 tracking-widest uppercase hidden sm:block">Scroll</span>
+        <span className="text-[10px] font-medium text-[#0066CC]/70 tracking-widest uppercase">Scroll</span>
         <ChevronDown className="h-8 w-8 text-[#0066CC] group-hover:text-[#FF6600] transition-colors drop-shadow-sm" />
       </button>
     </section>
