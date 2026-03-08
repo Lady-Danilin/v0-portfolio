@@ -34,9 +34,19 @@ export function ProfileTabsSection() {
   const { t } = useLang()
   const tabs = t.profileTabs.tabs
   const [activeIdx, setActiveIdx] = useState(0)
+  const [contentVisible, setContentVisible] = useState(true)
   const tab = tabs[activeIdx]
   const HLIcons = highlightIcons[activeIdx]
   const TabIcon = tabIcons[activeIdx].icon
+
+  const handleTabChange = (i: number) => {
+    if (i === activeIdx) return
+    setContentVisible(false)
+    setTimeout(() => {
+      setActiveIdx(i)
+      setContentVisible(true)
+    }, 200)
+  }
 
   return (
     <section className="py-20 bg-gradient-to-br from-background via-muted/10 to-background">
@@ -62,7 +72,7 @@ export function ProfileTabsSection() {
               return (
                 <button
                   key={tab.id}
-                  onClick={() => setActiveIdx(i)}
+                  onClick={() => handleTabChange(i)}
                   className={cn(
                     "flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all duration-250 whitespace-nowrap",
                     isActive
@@ -80,7 +90,14 @@ export function ProfileTabsSection() {
         </div>
 
         {/* Content card */}
-        <div className="max-w-3xl mx-auto">
+        <div
+          className="max-w-3xl mx-auto"
+          style={{
+            opacity: contentVisible ? 1 : 0,
+            transform: contentVisible ? "translateY(0px)" : "translateY(8px)",
+            transition: "opacity 200ms ease-out, transform 200ms ease-out",
+          }}
+        >
           <Card className="border shadow-lg overflow-hidden">
             <div className="h-1 bg-gradient-to-r from-[#0066CC] to-[#FF6600]" />
 

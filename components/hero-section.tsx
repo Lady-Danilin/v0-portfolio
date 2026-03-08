@@ -56,8 +56,8 @@ export function HeroSection() {
 
       {/* Subtle animated orbs */}
       <div className="absolute inset-0 z-[2] overflow-hidden pointer-events-none">
-        <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-[#0066CC]/5 to-transparent rounded-full animate-pulse" />
-        <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-[#FF6600]/5 to-transparent rounded-full animate-pulse delay-1000" />
+        <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-[#0066CC]/6 to-transparent rounded-full animate-float" />
+        <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-[#FF6600]/6 to-transparent rounded-full animate-float" style={{ animationDelay: "3s" }} />
       </div>
 
       {/* Content */}
@@ -85,10 +85,14 @@ export function HeroSection() {
                 </span>
               </h1>
 
-              <div className="h-8 flex items-center justify-center lg:justify-start">
+              <div className="h-8 flex items-center justify-center lg:justify-start overflow-hidden">
                 <p
-                  className="text-xl md:text-2xl font-medium text-[#0066CC] transition-all duration-300"
-                  style={{ opacity: subtitleVisible ? 1 : 0, transform: subtitleVisible ? "translateY(0)" : "translateY(6px)" }}
+                  className="text-xl md:text-2xl font-medium text-[#0066CC]"
+                  style={{
+                    opacity: subtitleVisible ? 1 : 0,
+                    transform: subtitleVisible ? "translateY(0px)" : "translateY(12px)",
+                    transition: "opacity 350ms ease-out, transform 350ms cubic-bezier(0.22, 1, 0.36, 1)",
+                  }}
                 >
                   {t.hero.subtitles[currentSubtitle]}
                 </p>
