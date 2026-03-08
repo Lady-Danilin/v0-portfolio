@@ -49,7 +49,7 @@ export function HeroSection() {
           <div className="space-y-6 text-center lg:text-left">
             <div className="space-y-4 hero-animate-1">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-inter leading-tight">
-                Hi, I'm{" "}
+                {t.hero.greeting}{" "}
                 <span className="bg-gradient-to-r from-[#0066CC] via-[#0066CC] to-[#FF6600] bg-clip-text text-transparent">
                   Daniela Ayelén Argüello
                 </span>
