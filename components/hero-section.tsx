@@ -4,16 +4,12 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ChevronDown, Mail, Github } from "lucide-react"
+import { useLang } from "@/lib/language-context"
 
-const subtitles = [
-  "Digital Communication Strategist",
-  "Social Media Expert",
-  "Content Creator",
-  "Digital Marketing Specialist",
-  "Communication Professional",
-]
+
 
 export function HeroSection() {
+  const { t } = useLang()
   const [currentSubtitle, setCurrentSubtitle] = useState(0)
   const [subtitleVisible, setSubtitleVisible] = useState(true)
 
@@ -21,7 +17,7 @@ export function HeroSection() {
     const interval = setInterval(() => {
       setSubtitleVisible(false)
       setTimeout(() => {
-        setCurrentSubtitle((prev) => (prev + 1) % subtitles.length)
+        setCurrentSubtitle((prev) => (prev + 1) % t.hero.subtitles.length)
         setSubtitleVisible(true)
       }, 300)
     }, 3200)
@@ -64,15 +60,13 @@ export function HeroSection() {
                   className="text-xl md:text-2xl font-medium text-[#0066CC] transition-all duration-300"
                   style={{ opacity: subtitleVisible ? 1 : 0, transform: subtitleVisible ? "translateY(0)" : "translateY(6px)" }}
                 >
-                  {subtitles[currentSubtitle]}
+                  {t.hero.subtitles[currentSubtitle]}
                 </p>
               </div>
             </div>
 
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0 leading-relaxed hero-animate-2">
-              Passionate about digital communication, social media strategy, and content creation. I specialize in
-              building digital communities, developing comprehensive marketing strategies, and creating engaging content
-              that drives results across multiple platforms.
+              {t.hero.description}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start hero-animate-3">
@@ -82,7 +76,7 @@ export function HeroSection() {
                 onClick={() => scrollToSection("#contact")}
               >
                 <Mail className="mr-2 h-4 w-4" />
-                Get In Touch
+                {t.hero.ctaContact}
               </Button>
               <Button
                 variant="outline"
@@ -91,7 +85,7 @@ export function HeroSection() {
                 onClick={() => scrollToSection("#projects")}
               >
                 <Github className="mr-2 h-4 w-4" />
-                View My Work
+                {t.hero.ctaWork}
               </Button>
             </div>
           </div>

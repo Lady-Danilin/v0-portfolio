@@ -3,6 +3,7 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { useInView as useInViewHook } from "@/lib/use-in-view"
+import { useLang } from "@/lib/language-context"
 import {
   BarChart3,
   TrendingUp,
@@ -127,16 +128,17 @@ const getLevelBadgeColor = (level: string) => {
 }
 
 export function SkillsSection() {
+  const { t } = useLang()
   const { ref: sectionRef, inView } = useInViewHook()
 
   return (
     <section id="skills" className="py-20 bg-gradient-to-br from-background via-muted/20 to-background" ref={sectionRef}>
       <div className="container mx-auto px-4">
         <div className={`text-center mb-16 section-hidden ${inView ? "section-visible" : ""}`}>
-          <h2 className="text-3xl md:text-4xl font-bold font-inter mb-4">Skills & Expertise</h2>
+          <h2 className="text-3xl md:text-4xl font-bold font-inter mb-4">{t.skills.title}</h2>
           <div className="w-16 h-1 bg-gradient-to-r from-[#0066CC] to-[#FF6600] mx-auto mb-4" />
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Comprehensive toolkit for digital success
+            {t.skills.subtitle}
           </p>
         </div>
 
@@ -194,9 +196,9 @@ export function SkillsSection() {
           <Card className="inline-block p-6 bg-gradient-to-r from-[#0066CC]/10 to-[#FF6600]/10 border-none">
             <div className="flex items-center space-x-6">
               <div className="text-left">
-                <h4 className="font-bold text-lg mb-1">Always Learning</h4>
+                <h4 className="font-bold text-lg mb-1">{t.skills.alwaysLearning}</h4>
                 <p className="text-sm text-muted-foreground">
-                  Continuously expanding expertise in emerging technologies
+                  {t.skills.alwaysLearningDesc}
                 </p>
               </div>
               <div className="w-16 h-16 bg-gradient-to-r from-[#0066CC] to-[#FF6600] rounded-full flex items-center justify-center animate-pulse">
