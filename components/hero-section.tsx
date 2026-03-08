@@ -85,7 +85,7 @@ export function HeroSection() {
                 </span>
               </h1>
 
-              <div className="h-10 flex items-center justify-center lg:justify-start overflow-hidden">
+              <div className="h-[2.2rem] flex items-center justify-center lg:justify-start overflow-hidden" style={{ minHeight: "2.2rem" }}>
                 <p
                   className="text-xl md:text-2xl font-medium text-[#0066CC]"
                   style={{
@@ -151,7 +151,7 @@ export function HeroSection() {
         onClick={() => scrollToSection("#about")}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer group flex flex-col items-center gap-1 opacity-75 hover:opacity-100 transition-opacity duration-200"
       >
-        <span className="text-[10px] font-medium text-[#0066CC]/70 tracking-widest uppercase">Scroll</span>
+        <span className="text-[10px] font-semibold text-[#0066CC] tracking-widest uppercase opacity-60">Scroll</span>
         <ChevronDown className="h-8 w-8 text-[#0066CC] group-hover:text-[#FF6600] transition-colors drop-shadow-sm" />
       </button>
     </section>
