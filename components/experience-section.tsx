@@ -4,6 +4,8 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { useInView } from "@/lib/use-in-view"
 import { useLang } from "@/lib/language-context"
+import { RevealOnScroll } from "@/components/animations/RevealOnScroll"
+import { StaggerList } from "@/components/animations/StaggerList"
 
 const experiencesEN = [
   {
@@ -75,11 +77,11 @@ export function ExperienceSection() {
   return (
     <section id="experience" className="py-20 bg-gradient-to-br from-[#F8F9FA] to-white dark:from-gray-900 dark:to-gray-800" ref={sectionRef as React.RefObject<HTMLElement>}>
       <div className="container mx-auto px-4">
-        <div className={`text-center mb-16 section-hidden ${inView ? "section-visible" : ""}`}>
+        <RevealOnScroll direction="up" blur className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold font-inter mb-4">{t.experience.title}</h2>
           <div className="w-16 h-1 bg-gradient-to-r from-[#0066CC] to-[#FF6600] mx-auto mb-4" />
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{t.experience.subtitle}</p>
-        </div>
+        </RevealOnScroll>
 
         <div className="max-w-4xl mx-auto">
           <div className="relative">

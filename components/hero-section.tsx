@@ -1,12 +1,20 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import dynamic from "next/dynamic"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ChevronDown, Mail, Github } from "lucide-react"
 import { useLang } from "@/lib/language-context"
 
+// WebGL dot grid — SSR disabled (requires canvas/WebGL)
+const DotGridCanvas = dynamic(
+  () => import("@/components/animations/DotGridCanvas").then((m) => m.DotGridCanvas),
+  { ssr: false }
+)
 
+// Primary blue (#0066CC) normalized for WebGL
+const ACCENT_COLOR: [number, number, number] = [0.0, 0.4, 0.8]
 
 export function HeroSection() {
   const { t } = useLang()
@@ -34,19 +42,41 @@ export function HeroSection() {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#F8F9FA] via-white to-[#F8F9FA] dark:from-gray-900 dark:via-gray-800 dark:to-gray-900" />
+      {/* WebGL dot grid — behind everything */}
+      <DotGridCanvas
+        accentColor={ACCENT_COLOR}
+        dotSize={1.5}
+        spacing={28}
+        pulseSpeed={0.5}
+        className="absolute inset-0 z-0 pointer-events-none"
+      />
 
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
+      {/* Background Gradient — above WebGL, behind content */}
+      <div className="absolute inset-0 z-[1] bg-gradient-to-br from-[#F8F9FA]/90 via-white/80 to-[#F8F9FA]/90 dark:from-gray-900/85 dark:via-gray-800/80 dark:to-gray-900/85" />
+
+      {/* Subtle animated orbs */}
+      <div className="absolute inset-0 z-[2] overflow-hidden pointer-events-none">
         <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-[#0066CC]/5 to-transparent rounded-full animate-pulse" />
         <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-[#FF6600]/5 to-transparent rounded-full animate-pulse delay-1000" />
       </div>
 
+      {/* Content */}
       <div className="container mx-auto px-4 relative z-10 pt-20 lg:pt-0">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <div className="space-y-6 text-center lg:text-left">
+
+            {/* Available badge */}
+            <div className="flex justify-center lg:justify-start hero-animate-1">
+              <span className="available-badge">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping-slow absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                </span>
+                Disponible para trabajar
+              </span>
+            </div>
+
             <div className="space-y-4 hero-animate-1">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-inter leading-tight">
                 {t.hero.greeting}{" "}
@@ -105,8 +135,8 @@ export function HeroSection() {
               </div>
 
               {/* Floating Elements */}
-              <div className="hidden lg:block absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-r from-[#0066CC] to-[#FF6600] rounded-full animate-bounce delay-300" />
-              <div className="hidden lg:block absolute -bottom-4 -left-4 w-6 h-6 bg-gradient-to-r from-[#FF6600] to-[#0066CC] rounded-full animate-bounce delay-700" />
+              <div className="hidden lg:block absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-r from-[#0066CC] to-[#FF6600] rounded-full animate-float" />
+              <div className="hidden lg:block absolute -bottom-4 -left-4 w-6 h-6 bg-gradient-to-r from-[#FF6600] to-[#0066CC] rounded-full animate-float" style={{ animationDelay: "2s" }} />
             </div>
           </div>
         </div>

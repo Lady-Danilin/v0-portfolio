@@ -5,6 +5,8 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ExternalLink, University, TrendingUp, Mic } from "lucide-react"
 import { useLang } from "@/lib/language-context"
+import { RevealOnScroll } from "@/components/animations/RevealOnScroll"
+import { StaggerList } from "@/components/animations/StaggerList"
 
 const projectIcons = [University, TrendingUp, Mic]
 const projectGradients = ["from-blue-500 to-purple-600", "from-green-500 to-teal-600", "from-orange-500 to-red-600"]
@@ -15,13 +17,13 @@ export function ProjectsSection() {
   return (
     <section id="projects" className="py-20 bg-gradient-to-br from-[#F8F9FA] to-white dark:from-gray-900 dark:to-gray-800">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <RevealOnScroll direction="up" blur className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold font-inter mb-4">{t.projects.title}</h2>
           <div className="w-16 h-1 bg-gradient-to-r from-[#0066CC] to-[#FF6600] mx-auto mb-4" />
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{t.projects.subtitle}</p>
-        </div>
+        </RevealOnScroll>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <StaggerList className="grid md:grid-cols-2 lg:grid-cols-3 gap-8" staggerDelay={0.1} itemDelay={0.1}>
           {t.projects.items.map((project, index) => {
             const Icon = projectIcons[index]
             return (
@@ -50,9 +52,9 @@ export function ProjectsSection() {
               </Card>
             )
           })}
-        </div>
+        </StaggerList>
 
-        <div className="text-center mt-12">
+        <RevealOnScroll direction="up" delay={0.2} className="text-center mt-12">
           <p className="text-muted-foreground mb-6">{t.projects.cta}</p>
           <Button
             size="lg"
@@ -61,7 +63,7 @@ export function ProjectsSection() {
           >
             {t.projects.ctaBtn}
           </Button>
-        </div>
+        </RevealOnScroll>
       </div>
     </section>
   )

@@ -6,6 +6,8 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Award, Users, ThumbsUp } from "lucide-react"
 import { useInView } from "@/lib/use-in-view"
 import { useLang } from "@/lib/language-context"
+import { RevealOnScroll } from "@/components/animations/RevealOnScroll"
+import { StaggerList } from "@/components/animations/StaggerList"
 
 const statIcons = [Award, Users, ThumbsUp]
 
@@ -46,11 +48,11 @@ export function AboutSection() {
   return (
     <section id="about" className="py-20 bg-background" ref={sectionRef as React.RefObject<HTMLElement>}>
       <div className="container mx-auto px-4">
-        <div className={`text-center mb-16 section-hidden ${inView ? "section-visible" : ""}`}>
+        <RevealOnScroll direction="up" blur className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold font-inter mb-4">{t.about.title}</h2>
           <div className="w-16 h-1 bg-gradient-to-r from-[#0066CC] to-[#FF6600] mx-auto mb-4" />
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{t.about.subtitle}</p>
-        </div>
+        </RevealOnScroll>
 
         <div className="grid lg:grid-cols-3 gap-12 items-start">
           <div className={`lg:col-span-2 space-y-6 section-hidden-left ${inView ? "section-visible-x" : ""} delay-200`}>

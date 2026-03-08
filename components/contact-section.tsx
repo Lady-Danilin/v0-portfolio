@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react"
 import { useLang } from "@/lib/language-context"
+import { RevealOnScroll } from "@/components/animations/RevealOnScroll"
 
 export function ContactSection() {
   const { t } = useLang()
@@ -42,11 +43,11 @@ export function ContactSection() {
   return (
     <section id="contact" className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <RevealOnScroll direction="up" blur className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold font-inter mb-4">{t.contact.title}</h2>
           <div className="w-16 h-1 bg-gradient-to-r from-[#0066CC] to-[#FF6600] mx-auto mb-4" />
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{t.contact.subtitle}</p>
-        </div>
+        </RevealOnScroll>
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           <div className="space-y-8">
