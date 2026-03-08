@@ -53,7 +53,7 @@ export function ResumeSection() {
                   {t.resume.downloadEn}
                 </a>
               </Button>
-              <Button asChild size="lg" variant="outline" className="w-full border-white text-white hover:bg-white hover:text-[#0066CC] shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <Button asChild size="lg" className="w-full bg-white/20 backdrop-blur-sm border-2 border-white text-white hover:bg-white hover:text-[#0066CC] shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 font-semibold">
                 <a href="/static/CV/CV DANIELA ARGUELLO 2025.pdf" download="CV_Daniela_Arguello_2025_ES.pdf">
                   <Download className="mr-2 h-4 w-4" />
                   {t.resume.downloadEs}
