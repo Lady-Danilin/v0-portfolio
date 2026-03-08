@@ -154,7 +154,7 @@ export function ProfileTabsSection() {
                       <p className="text-xs text-muted-foreground">{tab.caseStudy.role}</p>
                     </div>
                     <a
-                      href="https://fcefyn.unc.edu.ar/extension/"
+                      href="https://fcefyn.unc.edu.ar/facultad/secretarias/extension/area-de-formacion-continua/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-xs text-[#0066CC] flex items-center gap-1 hover:underline flex-shrink-0"

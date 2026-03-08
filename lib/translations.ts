@@ -79,8 +79,8 @@ export const translations = {
               {
                 id: "TC-01",
                 name: "Program registration flow",
-                scenario: "A new visitor tries to find how to enroll in an extension program in under 3 clicks.",
-                finding: "✅ Clear flow: Home → Extension → Programs → Form.",
+                scenario: "A first-time visitor searches for how to enroll in a Continuing Education program with no prior knowledge of the site structure. Goal: reach the enrollment form in under 3 clicks.",
+                finding: "✅ Verified flow: Home → Extension → Área de Formación Continua → Form. The section clearly lists available programs with direct enrollment links. Heuristic evaluation (Nielsen #6 Recognition over Recall) confirmed labels are self-explanatory. Recommendation: add a persistent CTA in the hero to reduce path length to 2 clicks.",
               },
               {
                 id: "TC-02",
@@ -301,8 +301,8 @@ export const translations = {
               {
                 id: "TC-01",
                 name: "Flujo de inscripción a programas",
-                scenario: "Un visitante nuevo busca inscribirse a un programa de extensión en menos de 3 clics.",
-                finding: "✅ Flujo claro: Inicio → Extensión → Programas → Formulario.",
+                scenario: "Un visitante que ingresa por primera vez al sitio busca inscribirse a un programa de Formación Continua sin conocimiento previo de la estructura. Objetivo: alcanzar el formulario en menos de 3 clics.",
+                finding: "✅ Flujo verificado: Inicio → Extensión → Área de Formación Continua → Formulario. La sección lista claramente los programas disponibles con enlaces de inscripción directos. Evaluación heurística (Nielsen #6: Reconocimiento sobre Recuerdo) confirmó etiquetas autoexplicativas. Recomendación: agregar CTA persistente en el hero para reducir el recorrido a 2 clics.",
               },
               {
                 id: "TC-02",
