@@ -122,7 +122,7 @@ export function Header() {
                   className="text-sm font-semibold text-muted-foreground hover:text-[#0066CC] transition-colors duration-200 relative group"
                 >
                   {item.name}
-                  <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-[3px] rounded-full bg-gradient-to-r from-[#0066CC] to-[#FF6600] transition-all duration-300 group-hover:w-full" />
+                  <span className="absolute -bottom-1 left-0 w-0 h-[3px] rounded-full bg-gradient-to-r from-[#0066CC] to-[#FF6600] group-hover:w-full" style={{ transition: "width 220ms cubic-bezier(0.4,0,0.2,1)" }} />
                 </button>
               ))}
             </nav>

@@ -109,7 +109,7 @@ export function HeroSection() {
                 className="bg-gradient-to-r from-[#FF6600] to-[#FF8533] hover:from-[#e55c00] hover:to-[#FF6600] text-white shadow-lg hover:shadow-[0_10px_28px_rgba(255,102,0,0.55),0_0_0_4px_rgba(255,102,0,0.12)] transition-all duration-300 hover:-translate-y-1 hover:brightness-105"
                 onClick={() => scrollToSection("#contact")}
               >
-                <Mail className="mr-2 h-4 w-4" />
+                <Mail className="mr-2 h-4 w-4 relative -top-px" />
                 {t.hero.ctaContact}
               </Button>
               <Button
@@ -118,7 +118,7 @@ export function HeroSection() {
                 className="border-2 border-[#0066CC] text-[#0066CC] hover:bg-[#0066CC] hover:text-white hover:shadow-[0_10px_28px_rgba(0,102,204,0.5),0_0_0_4px_rgba(0,102,204,0.1)] hover:brightness-105 transition-all duration-300 hover:-translate-y-1"
                 onClick={() => scrollToSection("#projects")}
               >
-                <Github className="mr-2 h-4 w-4" />
+                <Github className="mr-2 h-4 w-4 relative -top-px" />
                 {t.hero.ctaWork}
               </Button>
             </div>
@@ -126,7 +126,7 @@ export function HeroSection() {
 
           {/* Profile Image */}
           <div className="flex justify-center lg:justify-end hero-image-animate">
-            <div className="relative group">
+            <div className="relative group animate-float" style={{ animationDelay: "1s" }}>
               <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-white shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:shadow-[0_20px_60px_rgba(0,102,204,0.25)]">
                 <Image
                   src="/static/Images/retrato-la-cueva-arg-374.jpg"
@@ -151,7 +151,7 @@ export function HeroSection() {
         onClick={() => scrollToSection("#about")}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer group flex flex-col items-center gap-1 opacity-75 hover:opacity-100 transition-opacity duration-200"
       >
-        <span className="text-[10px] font-semibold text-[#0066CC] tracking-widest uppercase opacity-60">Scroll</span>
+        <span className="text-xs font-semibold text-[#0066CC] tracking-widest uppercase opacity-85">Scroll</span>
         <ChevronDown className="h-8 w-8 text-[#0066CC] group-hover:text-[#FF6600] transition-colors drop-shadow-sm" />
       </button>
     </section>
