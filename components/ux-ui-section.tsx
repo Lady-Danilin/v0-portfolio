@@ -50,7 +50,7 @@ export function UXUISection() {
           <Card className="mt-12 bg-gradient-to-r from-[#0066CC]/5 to-[#FF6600]/5 border-l-4 border-l-[#0066CC]">
             <CardContent className="p-8">
               <h4 className="text-xl font-bold font-inter mb-4 text-center">{t.uxui.process.title}</h4>
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 text-center">
                 {t.uxui.process.steps.map((phase, index) => (
                   <div key={index} className="space-y-3">
                     <div className="w-12 h-12 bg-gradient-to-r from-[#0066CC] to-[#FF6600] rounded-full flex items-center justify-center mx-auto">
