@@ -11,6 +11,7 @@ export const translations = {
       contact: "Contact",
     },
     hero: {
+      availableBadge: "Open to work",
       greeting: "Hi, I'm",
       subtitles: [
         "Digital Communication Strategist",
@@ -233,6 +234,7 @@ export const translations = {
       contact: "Contacto",
     },
     hero: {
+      availableBadge: "Disponible para trabajar",
       greeting: "Hola, soy",
       subtitles: [
         "Estratega en Comunicación Digital",

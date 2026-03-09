@@ -73,7 +73,7 @@ export function HeroSection() {
                   <span className="animate-ping-slow absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
                 </span>
-                Disponible para trabajar
+                {t.hero.availableBadge}
               </span>
             </div>
 
