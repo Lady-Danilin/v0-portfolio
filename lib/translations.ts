@@ -124,7 +124,7 @@ export const translations = {
       features: ["Complete work history", "Detailed skill breakdown", "Education & certifications", "Contact information"],
       downloadEn: "Download CV (English)",
       downloadEs: "Descargar CV (Español)",
-      updated: "Updated 2025",
+      updated: "Updated 2026",
     },
     skills: {
       title: "Skills & Expertise",
@@ -347,7 +347,7 @@ export const translations = {
       features: ["Historial laboral completo", "Desglose detallado de habilidades", "Educación y certificaciones", "Información de contacto"],
       downloadEn: "Download CV (English)",
       downloadEs: "Descargar CV (Español)",
-      updated: "Actualizado 2025",
+      updated: "Actualizado 2026",
     },
     skills: {
       title: "Habilidades",
