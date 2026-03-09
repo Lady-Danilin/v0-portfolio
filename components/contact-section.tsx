@@ -23,15 +23,27 @@ export function ContactSection() {
     const email = formData.get("email") as string
     const subject = formData.get("subject") as string
     const message = formData.get("message") as string
-    const emailSubject = encodeURIComponent(`Portfolio Contact: ${subject}`)
-    const emailBody = encodeURIComponent(`Hello Daniela,\n\nMy name is ${name} and I'm reaching out regarding: ${subject}\n\nMessage:\n${message}\n\nBest regards,\n${name}\n\nContact Email: ${email}`)
-    window.location.href = `mailto:arguellodanielaayelen@gmail.com?subject=${emailSubject}&body=${emailBody}`
-    setTimeout(() => {
-      setIsSubmitting(false)
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, subject, message }),
+      })
+
+      if (!res.ok) throw new Error("Failed to send")
+
       setIsSubmitted(true)
-      e.currentTarget.reset()
-      setTimeout(() => setIsSubmitted(false), 3000)
-    }, 1000)
+      ;(e.target as HTMLFormElement).reset()
+      setTimeout(() => setIsSubmitted(false), 4000)
+    } catch {
+      // fallback a mailto si falla la API
+      const emailSubject = encodeURIComponent(`Portfolio Contact: ${subject}`)
+      const emailBody = encodeURIComponent(`Hello Daniela,\n\nMy name is ${name} and I'm reaching out regarding: ${subject}\n\nMessage:\n${message}\n\nBest regards,\n${name}\n\nContact Email: ${email}`)
+      window.location.href = `mailto:arguellodanielaayelen@gmail.com?subject=${emailSubject}&body=${emailBody}`
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const contactItems = [
