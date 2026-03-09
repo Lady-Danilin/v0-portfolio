@@ -37,7 +37,7 @@ export function BroadcasterSection() {
                   </div>
                 </div>
                 <AudioPlayer src="/audios/demo-locucion.mp3" title={t.broadcaster.audioSubtitle} />
-                <p className="text-sm text-muted-foreground italic">{t.broadcaster.audioNote}</p>
+                {t.broadcaster.audioNote && <p className="text-sm text-muted-foreground italic">{t.broadcaster.audioNote}</p>}
               </CardContent>
             </Card>
           </div>

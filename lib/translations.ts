@@ -140,9 +140,9 @@ export const translations = {
       subtitle: "Your Voice, Your Vision, Digitally Realized.",
       heading: "Your Professional Voice",
       description: "With extensive experience in radio production and voice acting, I bring professionalism and versatility to every project. From commercial advertising to narrative storytelling, my voice adapts to convey the right tone and message for your brand.",
-      audioTitle: "Main Presentation Audio",
+      audioTitle: "Demo",
       audioSubtitle: "Voice demo",
-      audioNote: "Further audio examples coming soon (e.g., advertising, narrative, voice acting styles).",
+      audioNote: "",
       gallery: "Gallery",
       galleryItems: [
         { caption: "Voice & Presence" },
@@ -362,9 +362,9 @@ export const translations = {
       subtitle: "Tu voz, tu visión, digitalmente realizada.",
       heading: "Tu voz profesional",
       description: "Con amplia experiencia en producción radial y locución, aporto profesionalismo y versatilidad a cada proyecto. Desde publicidad comercial hasta narración, mi voz se adapta para transmitir el tono y mensaje correctos para tu marca.",
-      audioTitle: "Audio de presentación principal",
+      audioTitle: "Demo",
       audioSubtitle: "Demo de locución",
-      audioNote: "Próximamente más ejemplos (publicidad, narrativa, voice acting).",
+      audioNote: "",
       gallery: "Galería",
       galleryItems: [
         { caption: "Presencia y voz" },
