@@ -25,7 +25,7 @@ export function ContactSection() {
     const message = formData.get("message") as string
     const emailSubject = encodeURIComponent(`Portfolio Contact: ${subject}`)
     const emailBody = encodeURIComponent(`Hello Daniela,\n\nMy name is ${name} and I'm reaching out regarding: ${subject}\n\nMessage:\n${message}\n\nBest regards,\n${name}\n\nContact Email: ${email}`)
-    window.location.href = `mailto:darguello@gmail.com?subject=${emailSubject}&body=${emailBody}`
+    window.location.href = `mailto:arguellodanielaayelen@gmail.com?subject=${emailSubject}&body=${emailBody}`
     setTimeout(() => {
       setIsSubmitting(false)
       setIsSubmitted(true)
@@ -35,7 +35,7 @@ export function ContactSection() {
   }
 
   const contactItems = [
-    { icon: Mail, label: "Email", value: "darguello@gmail.com", href: "mailto:darguello@gmail.com" },
+    { icon: Mail, label: "Email", value: "arguellodanielaayelen@gmail.com", href: "mailto:arguellodanielaayelen@gmail.com" },
     { icon: Phone, label: "Phone", value: "+549 3515647873", href: "tel:+5493515647873" },
     { icon: MapPin, label: t.contact.location, value: "Córdoba, Argentina", href: null },
   ]
@@ -71,12 +71,7 @@ export function ContactSection() {
                 ))}
               </div>
             </div>
-            <Card className="bg-gradient-to-r from-[#0066CC]/5 to-[#FF6600]/5 border-l-4 border-l-[#0066CC]">
-              <CardContent className="p-6">
-                <h4 className="font-semibold mb-2">{t.contact.cardTitle}</h4>
-                <p className="text-muted-foreground text-sm">{t.contact.cardDesc}</p>
-              </CardContent>
-            </Card>
+
           </div>
 
           <Card className="shadow-lg">
