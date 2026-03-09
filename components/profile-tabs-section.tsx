@@ -5,10 +5,8 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import {
-  Share2, BarChart3, Users, Megaphone,
-  Mic, Radio, Volume2,
-  Palette, MousePointer, CheckCircle,
-  ArrowRight, ExternalLink
+  Share2, Mic, Palette,
+  ArrowRight, ExternalLink, Check
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { useLang } from "@/lib/language-context"
@@ -17,12 +15,6 @@ const tabIcons = [
   { id: "social", icon: Share2 },
   { id: "voice", icon: Mic },
   { id: "ux",    icon: Palette },
-]
-
-const highlightIcons = [
-  [Users, BarChart3, Megaphone],
-  [Radio, Mic, Volume2],
-  [MousePointer, CheckCircle, Palette],
 ]
 
 function scrollTo(href: string) {
@@ -36,7 +28,6 @@ export function ProfileTabsSection() {
   const [activeIdx, setActiveIdx] = useState(0)
   const [contentVisible, setContentVisible] = useState(true)
   const tab = tabs[activeIdx]
-  const HLIcons = highlightIcons[activeIdx]
   const TabIcon = tabIcons[activeIdx].icon
 
   const handleTabChange = (i: number) => {
@@ -89,15 +80,16 @@ export function ProfileTabsSection() {
           </div>
         </div>
 
-        {/* Content card */}
+        {/* Content */}
         <div
-          className="max-w-3xl mx-auto"
+          className="max-w-3xl mx-auto space-y-4"
           style={{
             opacity: contentVisible ? 1 : 0,
             transform: contentVisible ? "translateY(0px)" : "translateY(8px)",
             transition: "opacity 200ms ease-out, transform 200ms ease-out",
           }}
         >
+          {/* Main card — mismo tamaño para los 3 tabs */}
           <Card className="border shadow-lg overflow-hidden">
             <div className="h-1 bg-gradient-to-r from-[#0066CC] to-[#FF6600]" />
 
@@ -117,19 +109,14 @@ export function ProfileTabsSection() {
               {/* Description */}
               <p className="text-muted-foreground leading-relaxed">{tab.description}</p>
 
-              {/* Highlights */}
+              {/* Highlights — icono Check uniforme, sin box decorativo */}
               <div className="space-y-2.5">
-                {tab.highlights.map((h, i) => {
-                  const Icon = HLIcons[i]
-                  return (
-                    <div key={i} className="flex items-start gap-3">
-                      <div className="w-7 h-7 rounded-lg bg-gradient-to-r from-[#0066CC]/10 to-[#FF6600]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <Icon className="h-3.5 w-3.5 text-[#0066CC]" />
-                      </div>
-                      <p className="text-sm text-foreground/80 leading-relaxed pt-1">{h}</p>
-                    </div>
-                  )
-                })}
+                {tab.highlights.map((h, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <Check className="h-4 w-4 text-[#0066CC] flex-shrink-0 mt-0.5" />
+                    <p className="text-sm text-foreground/80 leading-relaxed">{h}</p>
+                  </div>
+                ))}
               </div>
 
               {/* Skills */}
@@ -145,40 +132,6 @@ export function ProfileTabsSection() {
                 ))}
               </div>
 
-              {/* Case study (UX tab) */}
-              {"caseStudy" in tab && tab.caseStudy && (
-                <div className="rounded-2xl border border-border/60 overflow-hidden bg-muted/20">
-                  <div className="px-5 py-3.5 border-b border-border/60 flex items-center justify-between gap-3">
-                    <div>
-                      <p className="font-semibold text-sm">{tab.caseStudy.title}</p>
-                      <p className="text-xs text-muted-foreground">{tab.caseStudy.role}</p>
-                    </div>
-                    <a
-                      href="https://fcefyn.unc.edu.ar/facultad/secretarias/extension/area-de-formacion-continua/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs text-[#0066CC] flex items-center gap-1 hover:underline flex-shrink-0"
-                    >
-                      Ver sitio <ExternalLink className="h-3 w-3" />
-                    </a>
-                  </div>
-                  <div className="divide-y divide-border/40">
-                    {tab.caseStudy.tests.map((test) => (
-                      <div key={test.id} className="px-5 py-3.5 space-y-1">
-                        <div className="flex items-center gap-2">
-                          <Badge variant="outline" className="text-[10px] font-mono px-2 py-0.5 flex-shrink-0">
-                            {test.id}
-                          </Badge>
-                          <p className="text-sm font-semibold">{test.name}</p>
-                        </div>
-                        <p className="text-xs text-muted-foreground pl-10">{test.scenario}</p>
-                        <p className="text-xs pl-10 font-medium">{test.finding}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
               {/* CTA */}
               <Button
                 size="lg"
@@ -191,6 +144,41 @@ export function ProfileTabsSection() {
 
             </CardContent>
           </Card>
+
+          {/* Case study panel — fuera del card, solo visible en tab UX */}
+          {"caseStudy" in tab && tab.caseStudy && (
+            <div className="rounded-2xl border border-border/60 overflow-hidden bg-muted/20">
+              <div className="px-5 py-3.5 border-b border-border/60 flex items-center justify-between gap-3">
+                <div>
+                  <p className="font-semibold text-sm">{tab.caseStudy.title}</p>
+                  <p className="text-xs text-muted-foreground">{tab.caseStudy.role}</p>
+                </div>
+                <a
+                  href="https://fcefyn.unc.edu.ar/facultad/secretarias/extension/area-de-formacion-continua/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-[#0066CC] flex items-center gap-1 hover:underline flex-shrink-0"
+                >
+                  Ver sitio <ExternalLink className="h-3 w-3" />
+                </a>
+              </div>
+              <div className="divide-y divide-border/40">
+                {tab.caseStudy.tests.map((test) => (
+                  <div key={test.id} className="px-5 py-3.5 space-y-1">
+                    <div className="flex items-center gap-2">
+                      <Badge variant="outline" className="text-[10px] font-mono px-2 py-0.5 flex-shrink-0">
+                        {test.id}
+                      </Badge>
+                      <p className="text-sm font-semibold">{test.name}</p>
+                    </div>
+                    <p className="text-xs text-muted-foreground pl-10">{test.scenario}</p>
+                    <p className="text-xs pl-10 font-medium">{test.finding}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
         </div>
 
       </div>
